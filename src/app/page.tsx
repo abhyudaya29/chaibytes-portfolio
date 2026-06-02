@@ -1,65 +1,68 @@
-import Image from "next/image";
+"use client";
+import React, { useState, useEffect } from "react";
+import ScrollProvider from "@/components/providers/ScrollProvider";
+import NoiseBg from "@/components/shared/NoiseBg";
+import CustomCursor from "@/components/shared/CustomCursor";
+import CommandPalette from "@/components/command/CommandPalette";
+import FloatingNav from "@/components/navigation/FloatingNav";
+import HeroSection from "@/components/hero/HeroSection";
+import AboutSection from "@/components/about/AboutSection";
+import ExperienceSection from "@/components/experience/ExperienceSection";
+import ProjectsSection from "@/components/projects/ProjectsSection";
+import SkillsSection from "@/components/skills/SkillsSection";
+import AITerminalSection from "@/components/terminal/AITerminalSection";
+import MetricsSection from "@/components/metrics/MetricsSection";
+import ContactSection from "@/components/contact/ContactSection";
 
 export default function Home() {
+  const [isCommandOpen, setIsCommandOpen] = useState(false);
+
+  // Monitor keyboard Cmd+K or Ctrl+K shortcut to open command palette
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setIsCommandOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <ScrollProvider>
+      <div className="relative min-h-screen bg-bg-base text-text-primary selection:bg-accent-primary selection:text-text-primary overflow-x-hidden font-body">
+        
+        {/* Procedural background noise overlay */}
+        <NoiseBg />
+
+        {/* Hardware accelerated physics-based custom cursor */}
+        <CustomCursor />
+
+        {/* Raycast-style command menu */}
+        <CommandPalette isOpen={isCommandOpen} setIsOpen={setIsCommandOpen} />
+
+        {/* Floating pill navigation dock */}
+        <FloatingNav onSearchClick={() => setIsCommandOpen(true)} />
+
+        {/* Portfolio main sections */}
+        <HeroSection />
+        
+        <AboutSection />
+        
+        <ExperienceSection />
+        
+        <ProjectsSection />
+        
+        <SkillsSection />
+        
+        <AITerminalSection />
+        
+        <MetricsSection />
+        
+        <ContactSection />
+
+      </div>
+    </ScrollProvider>
   );
 }
