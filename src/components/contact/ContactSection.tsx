@@ -22,6 +22,10 @@ export default function ContactSection() {
           <div className="lg:col-span-7 space-y-8">
             <SectionLabel label="CONTACT & INQUIRIES" />
             
+            <div className="text-xs font-mono text-text-secondary/60 tracking-widest uppercase -mt-4">
+              ChaiBytes by Abhyudaya
+            </div>
+            
             <h2 className="text-4xl sm:text-5xl font-bold font-heading text-text-primary tracking-tight leading-tight max-w-xl">
               Let&apos;s build the <span className="font-editorial italic text-accent-primary font-normal">next generation</span> of intelligent systems.
             </h2>
@@ -29,7 +33,7 @@ export default function ContactSection() {
             <p className="text-text-secondary text-base sm:text-lg max-w-lg leading-relaxed font-body">
               Whether you want to collaborate on high-performance systems architecture, talk about AI-native workflows, or recruit for an ambitious role, let&apos;s connect.
             </p>
-
+            
             {/* Quick Metadata: Location and Time */}
             <div className="flex flex-wrap gap-6 pt-4 text-xs text-text-secondary font-mono border-t border-border-custom max-w-md">
               <div className="flex items-center gap-2">
@@ -116,14 +120,21 @@ export default function ContactSection() {
                 })}
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-                className="w-full py-2.5 rounded-lg bg-bg-elevated hover:bg-bg-card border border-border-custom hover:border-accent-primary/40 text-xs font-semibold font-mono tracking-wider uppercase text-text-primary flex items-center justify-center gap-2 transition-all duration-300"
+              <a 
+                href="https://calendly.com/abhyudayadev29/30min"
+                target="_blank"
+                rel="noreferrer"
+                className="block w-full"
               >
-                <span>Initialize Booking Protocol</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-accent-primary" />
-              </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="w-full py-2.5 rounded-lg bg-bg-elevated hover:bg-bg-card border border-border-custom hover:border-accent-primary/40 text-xs font-semibold font-mono tracking-wider uppercase text-text-primary flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer"
+                >
+                  <span>Initialize Booking Protocol</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-accent-primary" />
+                </motion.button>
+              </a>
             </motion.div>
           </div>
         </div>
@@ -131,7 +142,7 @@ export default function ContactSection() {
         {/* Footer/Links Row */}
         <div className="mt-20 pt-8 border-t border-border-custom/50 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-xs font-mono text-text-secondary">
-            © {new Date().getFullYear()} {PERSONAL_INFO.name}. Built with Next.js 15, Tailwind v4 & Framer Motion.
+            © {new Date().getFullYear()} ChaiBytes by Abhyudaya Dubey. Built with Next.js 15, Tailwind v4 & Framer Motion.
           </p>
 
           <div className="flex gap-4">

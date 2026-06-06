@@ -87,8 +87,19 @@ export default function HeroSection() {
             }}
             className="text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-text-primary uppercase"
           >
-            {PERSONAL_INFO.name}
+            ChaiBytes
           </motion.h1>
+
+          {/* Rebrand subtitle */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 10 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            className="text-xs sm:text-sm font-mono text-text-secondary tracking-widest uppercase -mt-2"
+          >
+            by Abhyudaya Dubey
+          </motion.div>
 
           {/* Rotating Title Carousel */}
           <motion.div

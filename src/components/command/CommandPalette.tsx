@@ -74,6 +74,20 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
       action: () => scrollToSection("terminal"),
     },
     {
+      id: "nav-blog",
+      title: "Go to Blog",
+      category: "Navigation",
+      icon: <Navigation className="w-3.5 h-3.5 text-accent-primary" />,
+      action: () => { window.location.href = "/blog"; },
+    },
+    {
+      id: "nav-freelance",
+      title: "Go to Freelance",
+      category: "Navigation",
+      icon: <Navigation className="w-3.5 h-3.5 text-accent-primary" />,
+      action: () => scrollToSection("freelance"),
+    },
+    {
       id: "nav-contact",
       title: "Go to Contact",
       category: "Navigation",

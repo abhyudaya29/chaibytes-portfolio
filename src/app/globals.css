@@ -153,3 +153,68 @@ html.lenis {
   -webkit-text-stroke: 1px rgba(253, 246, 238, 0.1);
   color: transparent;
 }
+
+/* Premium Code Snippet Section styling */
+.prose pre {
+  background-color: #1A1208 !important;
+  border: 1px solid rgba(232, 114, 42, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 1.25rem !important;
+  overflow-x: auto !important;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  margin: 1.5rem 0 !important;
+}
+
+.prose code {
+  font-family: var(--font-mono) !important;
+  font-size: 0.85em !important;
+  color: #E8722A !important;
+  background-color: rgba(200, 67, 10, 0.08) !important;
+  padding: 0.2rem 0.4rem !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(232, 114, 42, 0.1) !important;
+  font-weight: 500 !important;
+}
+
+.prose pre code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  color: #FDF6EE !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+}
+
+/* Rehype Pretty Code Support */
+code[data-theme] {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+code[data-theme] > [data-line] {
+  padding: 0 0.25rem;
+}
+
+/* Base style for code lines */
+[data-line] {
+  border-left: 2px solid transparent;
+}
+
+/* Line numbers */
+code[data-line-numbers] {
+  counter-reset: line;
+}
+
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 1.5rem;
+  text-align: right;
+  color: rgba(216, 199, 181, 0.25);
+  font-size: 0.8rem;
+  user-select: none;
+}

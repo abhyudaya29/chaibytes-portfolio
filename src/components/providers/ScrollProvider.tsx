@@ -1,10 +1,12 @@
 "use client";
 import React, { useEffect } from "react";
 import Lenis from "lenis";
+import { usePathname } from "next/navigation";
 
 export default function ScrollProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
   useEffect(() => {
-    // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
@@ -35,6 +37,17 @@ export default function ScrollProvider({ children }: { children: React.ReactNode
       delete (window as any).lenisInstance;
     };
   }, []);
+
+  // Resize and reset scroll position to top on navigation path change
+  useEffect(() => {
+    const lenis = (window as any).lenisInstance;
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+      requestAnimationFrame(() => {
+        lenis.resize();
+      });
+    }
+  }, [pathname]);
 
   return <>{children}</>;
 }

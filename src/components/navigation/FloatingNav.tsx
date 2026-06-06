@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, User, Briefcase, Code, Terminal, Mail, Search } from "lucide-react";
+import { Home, User, Briefcase, Code, Terminal, Mail, Search, BookOpen, Layers } from "lucide-react";
 
 interface FloatingNavProps {
   onSearchClick: () => void;
@@ -10,10 +10,12 @@ interface FloatingNavProps {
 
 const NAV_ITEMS = [
   { label: "Home", href: "#hero", icon: Home },
+  { label: "Freelance", href: "#freelance", icon: Layers },
   { label: "About", href: "#about", icon: User },
   { label: "Experience", href: "#experience", icon: Briefcase },
   { label: "Projects", href: "#projects", icon: Code },
   { label: "Skills", href: "#skills", icon: Terminal },
+  { label: "Blog", href: "/blog", icon: BookOpen },
   { label: "Contact", href: "#contact", icon: Mail },
 ];
 
@@ -24,6 +26,7 @@ export default function FloatingNav({ onSearchClick }: FloatingNavProps) {
 
   // Monitor scroll to highlight active section and show/hide navbar dynamically
   useEffect(() => {
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
@@ -42,6 +45,7 @@ export default function FloatingNav({ onSearchClick }: FloatingNavProps) {
       // Section spy
       const scrollPosition = currentScrollY + 200;
       for (const item of NAV_ITEMS) {
+        if (item.href.startsWith("/")) continue;
         const id = item.href.slice(1);
         const el = document.getElementById(id);
         if (el) {
@@ -59,9 +63,15 @@ export default function FloatingNav({ onSearchClick }: FloatingNavProps) {
   }, [lastScrollY]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("/")) {
+      // Let standard browser click routing take place for paths
+      return;
+    }
+    
     e.preventDefault();
     const targetId = href.slice(1);
     const element = document.getElementById(targetId);
+    
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
@@ -70,6 +80,9 @@ export default function FloatingNav({ onSearchClick }: FloatingNavProps) {
         behavior: "smooth",
       });
       setActiveSection(targetId);
+    } else {
+      // Redirect to home page section
+      window.location.href = "/" + href;
     }
   };
 
@@ -97,7 +110,7 @@ export default function FloatingNav({ onSearchClick }: FloatingNavProps) {
 
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
-            const isActive = activeSection === item.href.slice(1);
+            const isActive = activeSection === (item.href.startsWith("/") ? item.href.slice(1) : item.href.slice(1));
 
             return (
               <a
@@ -119,7 +132,7 @@ export default function FloatingNav({ onSearchClick }: FloatingNavProps) {
                   isActive ? "text-text-primary" : "text-text-secondary/80 group-hover:text-text-primary"
                 }`}>
                   <Icon className="w-4 h-4 shrink-0" />
-                  <span className="hidden sm:inline">{item.label}</span>
+                  <span className="hidden lg:inline">{item.label}</span>
                 </span>
               </a>
             );

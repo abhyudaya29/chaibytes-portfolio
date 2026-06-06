@@ -1,0 +1,145 @@
+---
+title: "Decoding AI Jargons with Chai — How ChatGPT Works"
+date: "2025-04-14"
+description: "Ever wondered what happens behind the scenes after you give a prompt to GPT? Tokenization, vector embeddings, positional encoding, and attention — decoded the desi way."
+tags: ["AI", "ChatGPT", "Machine Learning", "Explained"]
+---
+
+GPT stands for **Generative Pre-Trained Transformer** — it predicts the next word based on current context using a neural network architecture called the Transformer.
+
+Updating LLMs requires massive GPU resources and computational power, so it's not feasible to retrain them frequently. As a result, they have a knowledge cutoff and aren't up to date with recent events.
+
+Ever wondered what happens behind the scenes after you give a prompt to GPT? There are several phases involved before you get a response. Let's dive in.
+
+![AI Robot](/blog/robot.png)
+
+---
+
+## Tokenization
+
+Tokenization is the process of breaking down input text into a set of tokens — words, subwords, or characters — each mapped to a unique number.
+
+Let's say we have the input `"Babu Rao Chai Piyega Chai?"`. Each word gets mapped to a number from the model's vocabulary:
+
+- `Babu` → `200264`
+- `Rao` → `17360`
+- `Chai` → `200266`
+- `Piyega` → `21721`
+
+The full tokenized sequence looks something like:
+
+```
+200264, 17360, 200266, 33, 21721, 171935, 1036, 1361, 398 ...
+```
+
+![SpongeBob writing](/blog/spongebob.png)
+
+Every model has a **vocabulary size** — the number of unique tokens it knows. GPT-4o has a vocab size of `200,019`.
+
+### Code
+
+```python
+import tiktoken
+
+encoder = tiktoken.encoding_for_model("gpt-4o")
+
+print("Vocab Size:", encoder.n_vocab)
+
+text = "Babu Rao Chai Piyega Chai?"
+tokens = encoder.encode(text)
+print("Tokens:", tokens)
+```
+
+And when you execute it, the output looks like this:
+
+```bash
+Vocab Size: 200019
+Tokens: [33, 21721, 171935, 1036, 1361, 398, 3403, 11420, 1036, 1361, 30]
+```
+
+---
+
+## Vector Embeddings
+
+Tokenization gives us numbers, but those numbers have no meaning yet. Vector embedding finds the **semantic meaning** of tokens — not just by name, but by what they mean and how they relate to each other — by turning them into vectors in a high-dimensional space.
+
+### The Hera Pheri way 🧠
+
+Think of vector embeddings like a semantic map of the *Phir Hera Pheri* universe. Each character (token) is placed in this space based on meaning, behavior, and vibe.
+
+If you set off from **"Raju"**, you drift toward:
+- 🪙 "150 Wala Kachra Seth"
+- 🎩 "Totla Seth"
+- 💰 "Lalach" (greed)
+
+Because Raju's vibe is all about greedy hustle and falling for scams.
+
+![Cat coding](/blog/cat.png)
+
+But if you launch from **"Shyam"**, you end up near:
+- 👩💼 "Anuradha"
+- 🧠 "Logic"
+- 🪨 "Thoda Soch Samajh ke"
+
+Shyam's vector is closer to caution and reasoning — even if he gets dragged into chaos.
+
+### Code
+
+```python
+import os
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+load_dotenv()
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+response = genai.embed_content(
+    model="models/embedding-001",
+    content="Babu Rao Chai Piyega Chai?",
+    task_type="SEMANTIC_SIMILARITY"
+)
+
+embedding = response["embedding"]
+print(f"Vector length: {len(embedding)}")
+print(f"Sample: {embedding[:5]} ...")
+```
+
+Output:
+```
+Vector length: 768
+Sample: [0.06781081, -0.054971334, -0.036417995, -0.018049834, 0.04838467] ...
+```
+
+---
+
+## Positional Encoding
+
+Embeddings alone have a problem — they don't preserve word order. Both of these sentences would produce the same tokens:
+
+- `"Babu Rao Chai Piyega Chai?"`
+- `"Rao Chai Chai Babu Piyega"`
+
+Same tokens, same embeddings — but completely different meanings. **Positional encoding** fixes this by adding order information to each token's embedding so the model knows which word came first.
+
+---
+
+## Self-Attention & Multi-Head Attention
+
+Self-attention allows tokens to interact with each other to refine their embeddings based on context. Instead of doing this once, **multi-head attention** runs multiple attention operations in parallel — each head focusing on a different aspect of the relationship between tokens.
+
+### Example
+
+Consider: `"Babu Rao Chai Piyega Chai?"`
+
+- **Head 1** focuses on who is doing the action → `Babu Rao ↔ Piyega`
+- **Head 2** focuses on what is being acted upon → `Chai ↔ Piyega`
+- **Head 3** catches repetition → `Chai ↔ Chai`
+- **Head 4** notices the question → `"Chai?"`
+
+Each head captures a different relationship, and together they give the model a full understanding of who's doing what, to whom, and in what context — even when word order changes.
+
+---
+
+After multi-head attention processes the tokens, they're passed to the neural network for further refinement through **forward and backpropagation**. That's how ChatGPT learns.
+
+After all this, you might feel like *"uff, it's a lot!"* — just like Babu Rao in one of his classic moments. 😄

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import ScrollProvider from "@/components/providers/ScrollProvider";
 import NoiseBg from "@/components/shared/NoiseBg";
 import CustomCursor from "@/components/shared/CustomCursor";
 import CommandPalette from "@/components/command/CommandPalette";
@@ -12,6 +11,8 @@ import ProjectsSection from "@/components/projects/ProjectsSection";
 import SkillsSection from "@/components/skills/SkillsSection";
 import AITerminalSection from "@/components/terminal/AITerminalSection";
 import MetricsSection from "@/components/metrics/MetricsSection";
+import BlogSection from "@/components/blog/BlogSection";
+import FreelanceSection from "@/components/freelance/FreelanceSection";
 import ContactSection from "@/components/contact/ContactSection";
 
 export default function Home() {
@@ -30,39 +31,41 @@ export default function Home() {
   }, []);
 
   return (
-    <ScrollProvider>
-      <div className="relative min-h-screen bg-bg-base text-text-primary selection:bg-accent-primary selection:text-text-primary overflow-x-hidden font-body">
-        
-        {/* Procedural background noise overlay */}
-        <NoiseBg />
+    <div className="relative min-h-screen bg-bg-base text-text-primary selection:bg-accent-primary selection:text-text-primary overflow-x-hidden font-body">
+      
+      {/* Procedural background noise overlay */}
+      <NoiseBg />
 
-        {/* Hardware accelerated physics-based custom cursor */}
-        <CustomCursor />
+      {/* Hardware accelerated physics-based custom cursor */}
+      <CustomCursor />
 
-        {/* Raycast-style command menu */}
-        <CommandPalette isOpen={isCommandOpen} setIsOpen={setIsCommandOpen} />
+      {/* Raycast-style command menu */}
+      <CommandPalette isOpen={isCommandOpen} setIsOpen={setIsCommandOpen} />
 
-        {/* Floating pill navigation dock */}
-        <FloatingNav onSearchClick={() => setIsCommandOpen(true)} />
+      {/* Floating pill navigation dock */}
+      <FloatingNav onSearchClick={() => setIsCommandOpen(true)} />
 
-        {/* Portfolio main sections */}
-        <HeroSection />
-        
-        <AboutSection />
-        
-        <ExperienceSection />
-        
-        <ProjectsSection />
-        
-        <SkillsSection />
-        
-        <AITerminalSection />
-        
-        <MetricsSection />
-        
-        <ContactSection />
+      {/* Portfolio main sections */}
+      <HeroSection />
 
-      </div>
-    </ScrollProvider>
+      <FreelanceSection />
+      
+      <AboutSection />
+      
+      <ExperienceSection />
+      
+      <ProjectsSection />
+      
+      <SkillsSection />
+      
+      <AITerminalSection />
+      
+      <MetricsSection />
+
+      <BlogSection />
+      
+      <ContactSection />
+
+    </div>
   );
 }
