@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, User, Briefcase, Code, Terminal, Mail, Search, BookOpen, Layers } from "lucide-react";
+import { Home, User, Briefcase, Code, Terminal, Mail, Search, BookOpen, Layers, Users } from "lucide-react";
 
 interface FloatingNavProps {
   onSearchClick: () => void;
@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { label: "Home", href: "#hero", icon: Home },
   { label: "Freelance", href: "#freelance", icon: Layers },
   { label: "About", href: "#about", icon: User },
+  { label: "Team", href: "#team", icon: Users },
   { label: "Experience", href: "#experience", icon: Briefcase },
   { label: "Projects", href: "#projects", icon: Code },
   { label: "Skills", href: "#skills", icon: Terminal },

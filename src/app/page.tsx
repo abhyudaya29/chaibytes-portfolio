@@ -6,6 +6,7 @@ import CommandPalette from "@/components/command/CommandPalette";
 import FloatingNav from "@/components/navigation/FloatingNav";
 import HeroSection from "@/components/hero/HeroSection";
 import AboutSection from "@/components/about/AboutSection";
+import TeamSection from "@/components/team/TeamSection";
 import ExperienceSection from "@/components/experience/ExperienceSection";
 import ProjectsSection from "@/components/projects/ProjectsSection";
 import SkillsSection from "@/components/skills/SkillsSection";
@@ -51,6 +52,8 @@ export default function Home() {
       <FreelanceSection />
       
       <AboutSection />
+
+      <TeamSection />
       
       <ExperienceSection />
       
