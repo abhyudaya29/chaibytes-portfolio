@@ -1,20 +1,19 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Globe, Cpu, Layers } from "lucide-react";
+import { Github, Linkedin, Cpu, Layers, Bot } from "lucide-react";
 import SectionLabel from "../shared/SectionLabel";
 
 const TEAM_MEMBERS = [
   {
     name: "Abhyudaya Dubey",
-    role: "AI Product Engineer & Systems Builder",
+    role: "AI Product Engineer",
     image: "/abhyudaya.png",
-    bio: "Founder of ChaiBytes and AI Product Engineer. Specializes in building complete, easy-to-use digital systems from scratch that can easily grow to support millions of users. Handled everything from start to finish to build and scale the software platforms behind RAYSUITE.AI and RAYTARGET, turning smart AI technologies and message delivery tools into simple, powerful tools that anyone can use.",
-    tags: ["Next.js", "FastAPI", "PostgreSQL", "LangChain", "Agentic AI"],
+    bio: "Founder of ChaiBytes. Specializes in building complete, easy-to-use digital systems from scratch that can easily scale to support millions of users.",
+    location: "Delhi, India",
     socials: {
       github: "https://github.com/abhyudaya29",
       linkedin: "https://linkedin.com/in/abhyudaya-dubey-8771a7203",
-      twitter: "https://x.com/chaiwalahacoder",
     },
     icon: Cpu,
   },
@@ -22,13 +21,25 @@ const TEAM_MEMBERS = [
     name: "Pradeep Yadav",
     role: "Software Engineer & Partner",
     image: "/pradeep.png",
-    bio: "Software Engineer and Partner with over 4 years of experience building scalable web and mobile applications. Currently engineering AI platforms, admin portals, and compliance tools at RAYSUITE.AI. Previously developed business-critical full-stack solutions at Dotvik Solutions. Expert in responsive UIs, secure backend systems, and API integrations.",
-    tags: ["React.js", "React Native", "Laravel", "Java"],
+    bio: "Software Engineer with over 4 years of experience building scalable applications, admin portals, and compliance tools at RAYSUITE.AI.",
+    location: "Delhi, India",
     socials: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
     },
     icon: Layers,
+  },
+  {
+    name: "Pratham Sharma",
+    role: "AI Engineer & Partner",
+    image: "/pratham.png",
+    bio: "Specializes in autonomous agents, voice assistants, and operations automation pipelines that replace manual repetitive workflows.",
+    location: "Delhi, India",
+    socials: {
+      github: "https://github.com",
+      linkedin: "https://linkedin.com",
+    },
+    icon: Bot,
   },
 ];
 
@@ -47,12 +58,12 @@ export default function TeamSection() {
             Core Team
           </h2>
           <p className="text-sm sm:text-base text-text-secondary leading-relaxed font-body">
-            The minds behind the architectures. We partner with fast-growing startups and founders to design, build, and ship zero-to-one AI products and highly concurrent SaaS platforms.
+            The creators, strategists, and makers who move our mission forward, combining design, code, and vision to achieve remarkable results.
           </p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {TEAM_MEMBERS.map((member, index) => {
             const IconComponent = member.icon;
             return (
@@ -62,61 +73,56 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group p-6 sm:p-8 rounded-2xl bg-bg-card/40 border border-border-custom/50 backdrop-blur-md hover:border-accent-primary/30 hover:shadow-[0_0_40px_rgba(200,67,10,0.05)] transition-all duration-300 flex flex-col sm:flex-row gap-6 sm:gap-8 items-start"
+                className="group p-4 rounded-[32px] bg-bg-card/30 border border-border-custom/40 hover:border-accent-primary/20 hover:shadow-[0_0_50px_rgba(200,67,10,0.02)] transition-all duration-300 flex flex-col justify-between h-full"
               >
-                {/* Profile Photo */}
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-xl overflow-hidden bg-bg-base/80 border border-border-custom/30 group-hover:border-accent-primary/20 transition-all duration-500 shrink-0 self-center sm:self-start">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-                  />
-                  {/* Subtle color highlight ring on photo wrapper */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-base/30 to-transparent opacity-80" />
-                </div>
+                {/* Top Part */}
+                <div className="flex flex-col w-full">
+                  {/* Full-width Profile Photo */}
+                  <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-bg-base border border-border-custom/20">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                    />
+                  </div>
 
-                {/* Profile Details */}
-                <div className="flex-1 space-y-4 flex flex-col justify-between h-full">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-accent-primary">
-                      <IconComponent className="w-4 h-4 shrink-0" />
-                      <span className="font-mono text-[10px] tracking-widest uppercase">
+                  {/* Name and Role */}
+                  <div className="mt-5 flex flex-col">
+                    <h3 className="text-base sm:text-lg font-heading font-bold text-text-primary uppercase tracking-tight group-hover:text-accent-primary transition-colors duration-300">
+                      {member.name}
+                    </h3>
+                    <div className="flex items-center gap-1.5 mt-1 text-text-secondary/70">
+                      <IconComponent className="w-3.5 h-3.5 shrink-0 text-accent-primary/70" />
+                      <span className="font-mono text-[9px] tracking-wider uppercase">
                         {member.role}
                       </span>
                     </div>
-
-                    <h3 className="text-xl font-heading font-bold text-text-primary uppercase tracking-tight group-hover:text-accent-primary transition-colors duration-300">
-                      {member.name}
-                    </h3>
-                    
-                    <p className="text-xs text-text-secondary/90 leading-relaxed font-body">
-                      {member.bio}
-                    </p>
                   </div>
 
-                  {/* Tech Stack Badges */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {member.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-0.5 rounded text-[9px] font-mono bg-bg-base border border-border-custom/40 text-text-secondary/70"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  {/* Dashed Divider */}
+                  <div className="w-full border-t border-dashed border-border-custom/30 my-4" />
 
-                  {/* Social links row */}
-                  <div className="flex gap-3 pt-3 border-t border-border-custom/10">
+                  {/* Description Bio */}
+                  <p className="text-[13px] text-text-secondary/85 leading-relaxed font-body flex-1">
+                    {member.bio}
+                  </p>
+                </div>
+
+                {/* Footer Info */}
+                <div className="flex items-center justify-between mt-6 pt-4 border-t border-border-custom/10 w-full">
+                  <span className="text-[10px] font-mono text-text-secondary/40 select-none">
+                    {member.location}
+                  </span>
+                  <div className="flex gap-2">
                     {member.socials.github && (
                       <a
                         href={member.socials.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-text-secondary/50 hover:text-accent-primary transition-colors p-1"
+                        className="p-1.5 rounded-lg bg-bg-base/60 border border-border-custom/40 text-text-secondary/50 hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300"
                         aria-label="GitHub Profile"
                       >
-                        <Github className="w-4 h-4" />
+                        <Github className="w-3.5 h-3.5" />
                       </a>
                     )}
                     {member.socials.linkedin && (
@@ -124,21 +130,10 @@ export default function TeamSection() {
                         href={member.socials.linkedin}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-text-secondary/50 hover:text-accent-primary transition-colors p-1"
+                        className="p-1.5 rounded-lg bg-bg-base/60 border border-border-custom/40 text-text-secondary/50 hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300"
                         aria-label="LinkedIn Profile"
                       >
-                        <Linkedin className="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.socials.twitter && (
-                      <a
-                        href={member.socials.twitter}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-text-secondary/50 hover:text-accent-primary transition-colors p-1"
-                        aria-label="Twitter Profile"
-                      >
-                        <Twitter className="w-4 h-4" />
+                        <Linkedin className="w-3.5 h-3.5" />
                       </a>
                     )}
                   </div>
