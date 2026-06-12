@@ -21,7 +21,7 @@ interface BlogPostProps {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
 
 export default async function BlogPostPage({ params }: BlogPostProps) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -151,14 +151,18 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
 
           {/* Article Body */}
           <article className="prose prose-invert max-w-none prose-orange prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-p:text-text-secondary/90 prose-p:leading-relaxed prose-code:text-accent-primary prose-a:text-accent-primary hover:prose-a:text-accent-hover transition-colors font-body">
-            <MDXRemote 
-              source={post.content} 
-              options={{
-                mdxOptions: {
-                  rehypePlugins: [[rehypePrettyCode as any, options]],
-                }
-              }}
-            />
+            {post.content.trim().startsWith("<") || post.content.includes("</p>") || post.content.includes("</h2>") ? (
+              <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            ) : (
+              <MDXRemote 
+                source={post.content} 
+                options={{
+                  mdxOptions: {
+                    rehypePlugins: [[rehypePrettyCode as any, options]],
+                  }
+                }}
+              />
+            )}
           </article>
         </div>
       </div>

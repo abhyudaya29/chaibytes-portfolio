@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const posts = getAllPosts();
+    const posts = await getAllPosts();
     const formattedPosts = posts.map((post) => ({
       title: post.title,
       link: `/blog/${post.slug}`,
