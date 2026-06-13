@@ -1,102 +1,37 @@
-"use client"
+"use client";
 
-import { useLayoutEffect, useRef } from "react"
-import type React from "react"
-import { useInView } from "framer-motion"
-import { annotate } from "rough-notation"
-import { type RoughAnnotation } from "rough-notation/lib/model"
-
-type AnnotationAction =
-  | "highlight"
-  | "underline"
-  | "box"
-  | "circle"
-  | "strike-through"
-  | "crossed-off"
-  | "bracket"
+import React from "react";
+import { motion } from "framer-motion";
 
 interface HighlighterProps {
-  children: React.ReactNode
-  action?: AnnotationAction
-  color?: string
-  strokeWidth?: number
-  animationDuration?: number
-  iterations?: number
-  padding?: number
-  multiline?: boolean
-  isView?: boolean
+  children: React.ReactNode;
+  color?: string;
+  isView?: boolean;
+  action?: string;
+  strokeWidth?: number;
+  animationDuration?: number;
+  iterations?: number;
+  padding?: number;
+  multiline?: boolean;
 }
 
 export function Highlighter({
   children,
-  action = "highlight",
-  color = "#ffd1dc",
-  strokeWidth = 1.5,
-  animationDuration = 600,
-  iterations = 2,
-  padding = 2,
-  multiline = true,
-  isView = false,
+  color = "rgba(200, 67, 10, 0.25)",
+  isView = true,
 }: HighlighterProps) {
-  const elementRef = useRef<HTMLSpanElement>(null)
-
-  const isInView = useInView(elementRef, {
-    once: true,
-    margin: "-10%",
-  })
-
-  // If isView is false, always show. If isView is true, wait for inView
-  const shouldShow = !isView || isInView
-
-  useLayoutEffect(() => {
-    const element = elementRef.current
-    let annotation: RoughAnnotation | null = null
-    let resizeObserver: ResizeObserver | null = null
-
-    if (shouldShow && element) {
-      const annotationConfig = {
-        type: action,
-        color,
-        strokeWidth,
-        animationDuration,
-        iterations,
-        padding,
-        multiline,
-      }
-
-      const currentAnnotation = annotate(element, annotationConfig)
-      annotation = currentAnnotation
-      currentAnnotation.show()
-
-      resizeObserver = new ResizeObserver(() => {
-        currentAnnotation.hide()
-        currentAnnotation.show()
-      })
-
-      resizeObserver.observe(element)
-      resizeObserver.observe(document.body)
-    }
-
-    return () => {
-      annotation?.remove()
-      if (resizeObserver) {
-        resizeObserver.disconnect()
-      }
-    }
-  }, [
-    shouldShow,
-    action,
-    color,
-    strokeWidth,
-    animationDuration,
-    iterations,
-    padding,
-    multiline,
-  ])
-
   return (
-    <span ref={elementRef} className="relative inline-block bg-transparent">
+    <span className="relative inline px-1 font-semibold text-text-primary z-10">
+      {/* Animated highlighter background overlay */}
+      <motion.span
+        initial={{ width: "0%" }}
+        whileInView={{ width: "100%" }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeInOut", delay: 0.4 }}
+        className="absolute bottom-0.5 left-0 h-[85%] -z-10 rounded-sm origin-left"
+        style={{ backgroundColor: color }}
+      />
       {children}
     </span>
-  )
+  );
 }

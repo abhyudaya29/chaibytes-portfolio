@@ -5,6 +5,9 @@ import { Github, ExternalLink, ArrowRight, AppWindow, ArrowUpRight } from "lucid
 import { PROJECTS_DATA } from "@/lib/constants";
 import SectionLabel from "../shared/SectionLabel";
 import ProjectCard3D from "./ProjectCard3D";
+import Image from "next/image";
+import GlowBorder from "../shared/GlowBorder";
+import { SparklesText } from "../ui/sparkles-text";
 
 export default function ProjectsSection() {
   const featuredProject = PROJECTS_DATA.find((p) => p.featured);
@@ -37,19 +40,33 @@ export default function ProjectsSection() {
 
         {/* Large Featured Project Card (RayTalk) */}
         {featuredProject && (
-          <div className="w-full">
-            <ProjectCard3D className="!p-8 sm:!p-10 border-l-[3px] border-l-accent-primary">
+          <a
+            href={featuredProject.liveUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="block w-full cursor-pointer group/card"
+          >
+            <GlowBorder
+              glowColor="#C8430A"
+              duration={6}
+              containerClassName="rounded-[32px] w-full"
+              className="!p-8 sm:!p-10 !bg-bg-card/25 border border-border-custom/30 group-hover/card:border-accent-primary/40 transition-all duration-500"
+            >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
                 
                 {/* Info Area (cols 7) */}
                 <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
                   <div className="space-y-4">
                     <span className="font-mono text-[10px] tracking-widest text-accent-primary uppercase font-semibold">
-                      Featured Project · {featuredProject.category}
+                      Featured Product · {featuredProject.category}
                     </span>
-                    <h3 className="text-2xl sm:text-4xl font-heading font-bold text-text-primary uppercase tracking-tight">
+                    <SparklesText
+                      className="text-2xl sm:text-4xl font-heading font-bold text-text-primary uppercase tracking-tight block"
+                      sparklesCount={5}
+                      colors={{ first: "#C8430A", second: "#FFA07A" }}
+                    >
                       {featuredProject.name}
-                    </h3>
+                    </SparklesText>
                     <p className="text-[13px] sm:text-[14px] text-text-secondary leading-relaxed font-body">
                       {featuredProject.description}
                     </p>
@@ -62,67 +79,48 @@ export default function ProjectsSection() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
-                    <div className="flex flex-wrap gap-1.5">
-                      {featuredProject.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-bg-base border border-border-custom/50 text-text-secondary"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-
                     <div className="flex items-center gap-4 shrink-0 sm:ml-auto">
                       {featuredProject.githubUrl && featuredProject.githubUrl !== "#" && (
-                        <a
-                          href={featuredProject.githubUrl}
+                        <span
                           className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent-primary transition-colors font-medium"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.open(featuredProject.githubUrl, "_blank");
+                          }}
                         >
                           <Github className="w-4 h-4" /> Code
-                        </a>
+                        </span>
                       )}
-                      <a
-                        href={featuredProject.liveUrl}
+                      <span
                         className="flex items-center gap-1.5 text-xs text-accent-primary hover:text-accent-hover transition-colors font-semibold"
                       >
                         Explore {featuredProject.name} <ArrowUpRight className="w-4 h-4" />
-                      </a>
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Simulated Visual Mockup / Interface Code Code (cols 5) */}
-                <div className="lg:col-span-5 relative w-full h-[220px] sm:h-[260px] rounded-xl overflow-hidden bg-bg-base/80 border border-border-custom/50 p-4 font-mono text-[11px] text-text-secondary/70 shadow-inner flex flex-col justify-between">
-                  <div className="flex justify-between items-center text-[9px] text-text-secondary/30 uppercase tracking-widest border-b border-border-custom/30 pb-2">
-                    <span>vaidya_voice_agent.py</span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  </div>
-                  <pre className="flex-1 py-3 text-[10px] overflow-y-auto scrollbar-none text-accent-hover/80 leading-relaxed font-mono">
-{`async def vaidya_speech_orchestrator():
-    # Multilingual Hinglish router
-    stream = await speech_to_text(caller_input)
-    intent = analyze_code_switching(stream.text)
-    
-    response = await generate_llm_response(
-        intent.context, 
-        language=intent.detected_lang
-    )
-    # Exotel outbound pipeline
-    await play_audio_stream(
-        response.audio_url, 
-        stream.connection_id
-    )`}
-                  </pre>
-                  <div className="text-[9px] text-text-secondary/40 border-t border-border-custom/30 pt-2 flex justify-between">
-                    <span>Active Calls: 48/sec</span>
-                    <span>Exotel: Connected</span>
+                {/* Vaidya Product Graphic Dashboard (cols 5) */}
+                <div className="lg:col-span-5 relative w-full h-[220px] sm:h-[260px] rounded-2xl overflow-hidden border border-border-custom/40 shadow-2xl group-hover/card:scale-[1.02] transition-transform duration-500">
+                  <Image
+                    src="/vaidya_graphic.jpg"
+                    alt="Vaidya AI Receptionist Dashboard"
+                    fill
+                    className="object-cover"
+                    sizes="(max-w-768px) 100vw, 33vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-base/80 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                    <span className="text-[10px] font-mono text-text-primary uppercase tracking-widest bg-bg-card/90 px-3 py-1.5 rounded-lg border border-border-custom/50">
+                      View Live Demo
+                    </span>
                   </div>
                 </div>
 
               </div>
-            </ProjectCard3D>
-          </div>
+            </GlowBorder>
+          </a>
         )}
 
         {/* Bento Supporting Grid */}
