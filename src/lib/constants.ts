@@ -121,14 +121,14 @@ export const EXPERIENCE_TIMELINE = [
 
 export const PROJECTS_DATA = [
   {
-    id: "vox-reception",
+    id: "vaidya",
     category: "AI Operations & Voice Systems",
-    name: "Vox Reception",
+    name: "Vaidya",
     description:
       "Vira is an AI-powered voice receptionist for Indian businesses that answers every call, books appointments, handles over-the-phone payments, and transfers calls. Powered by Exotel, it natively supports Hinglish code-switching and all major Indian languages.",
     highlight: "Custom LLM speech orchestration, Hinglish code-switching parsing, and Exotel carrier integration.",
     tech: ["Next.js", "FastAPI", "Exotel API", "Python", "Vapi", "PostgreSQL", "Redis"],
-    liveUrl: "/products/vox-reception",
+    liveUrl: "/products/vaidya",
     githubUrl: "#",
     featured: true,
   },

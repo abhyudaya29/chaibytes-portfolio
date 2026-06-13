@@ -111,7 +111,7 @@ const USE_CASES = [
   { vertical: "Diagnostic Labs", action: "Books test appointments, answers test & report queries" }
 ];
 
-export default function VoxReceptionProduct() {
+export default function VaidyaProduct() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [activeStep, setActiveStep] = useState(0);
 
@@ -136,7 +136,7 @@ export default function VoxReceptionProduct() {
             <span className="text-border-custom/50">|</span>
             <div className="flex items-center gap-2">
               <span className="font-heading font-black text-sm tracking-tight text-text-primary uppercase">
-                Vox Reception
+                Vaidya
               </span>
               <span className="px-1.5 py-0.5 rounded text-[8px] font-mono bg-accent-primary/10 border border-accent-primary/30 text-accent-primary uppercase tracking-widest">
                 AI Voice OS
@@ -209,7 +209,7 @@ export default function VoxReceptionProduct() {
             className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mt-4"
           >
             <a
-              href="mailto:abhyudaya.dubey@gmail.com?subject=Vox%20Reception%20Free%20Trial"
+              href="mailto:abhyudaya.dubey@gmail.com?subject=Vaidya%20Free%20Trial"
               className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-accent-primary text-text-primary hover:bg-accent-hover font-mono text-xs uppercase font-bold tracking-widest shadow-lg shadow-accent-primary/20 transition-all text-center"
             >
               Start Free Trial
@@ -554,13 +554,13 @@ export default function VoxReceptionProduct() {
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mt-2">
             <a
-              href="mailto:abhyudaya.dubey@gmail.com?subject=Vox%20Reception%20Free%20Trial"
+              href="mailto:abhyudaya.dubey@gmail.com?subject=Vaidya%20Free%20Trial"
               className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-accent-primary text-text-primary hover:bg-accent-hover font-mono text-xs uppercase font-bold tracking-widest transition-all text-center"
             >
               Get Started Free
             </a>
             <a
-              href="mailto:abhyudaya.dubey@gmail.com?subject=Book%20Vox%20Reception%20Demo"
+              href="mailto:abhyudaya.dubey@gmail.com?subject=Book%20Vaidya%20Demo"
               className="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-border-custom hover:border-accent-primary/30 font-mono text-xs uppercase font-bold tracking-widest text-text-primary transition-all text-center"
             >
               Book a Demo
@@ -572,7 +572,7 @@ export default function VoxReceptionProduct() {
       {/* Footer */}
       <footer className="py-12 border-t border-border-custom/20 bg-bg-base/90 text-center font-mono text-[10px] text-text-secondary/35 uppercase tracking-[0.2em] relative z-10 select-none">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span>© 2026 VOX RECEPTION BY CHAIBYTES</span>
+          <span>© 2026 VAIDYA BY CHAIBYTES</span>
           <div className="flex gap-4">
             <Link href="/" className="hover:text-accent-primary transition-colors">BACK TO PORTFOLIO</Link>
           </div>
