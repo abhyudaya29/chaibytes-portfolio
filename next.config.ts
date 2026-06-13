@@ -1,7 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/products/vox-reception",
+        destination: "/products/vaidya",
+        permanent: true,
+      },
+      {
+        source: "/products/voz-reception",
+        destination: "/products/vaidya",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
