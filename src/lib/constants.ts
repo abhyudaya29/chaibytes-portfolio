@@ -121,6 +121,18 @@ export const EXPERIENCE_TIMELINE = [
 
 export const PROJECTS_DATA = [
   {
+    id: "vox-reception",
+    category: "AI Operations & Voice Systems",
+    name: "Vox Reception",
+    description:
+      "Vira is an AI-powered voice receptionist for Indian businesses that answers every call, books appointments, handles over-the-phone payments, and transfers calls. Powered by Exotel, it natively supports Hinglish code-switching and all major Indian languages.",
+    highlight: "Custom LLM speech orchestration, Hinglish code-switching parsing, and Exotel carrier integration.",
+    tech: ["Next.js", "FastAPI", "Exotel API", "Python", "Vapi", "PostgreSQL", "Redis"],
+    liveUrl: "/products/vox-reception",
+    githubUrl: "#",
+    featured: true,
+  },
+  {
     id: "raytalk",
     category: "Real-time Platform",
     name: "RayTalk",
@@ -130,7 +142,7 @@ export const PROJECTS_DATA = [
     tech: ["React", "FastAPI", "PostgreSQL", "SQLAlchemy", "Redis", "Meta APIs", "Google Sheets API", "React Query", "Chakra UI"],
     liveUrl: "https://talky.orbisdata.ai",
     githubUrl: "#",
-    featured: true,
+    featured: false,
   },
   {
     id: "raytarget",

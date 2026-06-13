@@ -95,6 +95,13 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
       action: () => scrollToSection("freelance"),
     },
     {
+      id: "product-vox-reception",
+      title: "Launch Vox Reception Product Page",
+      category: "Products",
+      icon: <ExternalLink className="w-3.5 h-3.5 text-accent-primary" />,
+      action: () => { window.location.href = "/products/vox-reception"; },
+    },
+    {
       id: "nav-contact",
       title: "Go to Contact",
       category: "Navigation",

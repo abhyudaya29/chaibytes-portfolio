@@ -26,12 +26,12 @@ export default function ProjectsSection() {
         
         {/* Header copy */}
         <div className="flex flex-col items-start gap-4 max-w-2xl">
-          <SectionLabel label="04 / Selected Works" />
+          <SectionLabel label="04 / Products Built" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
-            Intelligent Systems
+            Intelligent Products
           </h2>
           <p className="text-sm sm:text-base text-text-secondary leading-relaxed font-body">
-            A curated showcase of real-time communication platforms, development utilities, geospatial trackers, and automated architectures.
+            A curated showcase of real-time voice receptionists, conversational desks, marketing tools, and telecoms platform architectures we have built.
           </p>
         </div>
 
@@ -93,27 +93,28 @@ export default function ProjectsSection() {
                 {/* Simulated Visual Mockup / Interface Code Code (cols 5) */}
                 <div className="lg:col-span-5 relative w-full h-[220px] sm:h-[260px] rounded-xl overflow-hidden bg-bg-base/80 border border-border-custom/50 p-4 font-mono text-[11px] text-text-secondary/70 shadow-inner flex flex-col justify-between">
                   <div className="flex justify-between items-center text-[9px] text-text-secondary/30 uppercase tracking-widest border-b border-border-custom/30 pb-2">
-                    <span>raytalk_broker.py</span>
+                    <span>vira_voice_agent.py</span>
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   </div>
                   <pre className="flex-1 py-3 text-[10px] overflow-y-auto scrollbar-none text-accent-hover/80 leading-relaxed font-mono">
-{`async def message_broker():
-    # Subscribed to Redis omnichannel pipeline
-    pubsub = redis.pubsub()
-    await pubsub.subscribe("raytalk:messages")
+{`async def vira_speech_orchestrator():
+    # Multilingual Hinglish router
+    stream = await speech_to_text(caller_input)
+    intent = analyze_code_switching(stream.text)
     
-    async for message in pubsub.listen():
-        if message["type"] == "message":
-            payload = json.loads(message["data"])
-            # Broadcast to concurrent WS connections
-            await ws_manager.broadcast(
-                payload["room_id"], 
-                payload["content"]
-            )`}
+    response = await generate_llm_response(
+        intent.context, 
+        language=intent.detected_lang
+    )
+    # Exotel outbound pipeline
+    await play_audio_stream(
+        response.audio_url, 
+        stream.connection_id
+    )`}
                   </pre>
                   <div className="text-[9px] text-text-secondary/40 border-t border-border-custom/30 pt-2 flex justify-between">
-                    <span>Threads: 1,204/sec</span>
-                    <span>Redis: Connected</span>
+                    <span>Active Calls: 48/sec</span>
+                    <span>Exotel: Connected</span>
                   </div>
                 </div>
 
