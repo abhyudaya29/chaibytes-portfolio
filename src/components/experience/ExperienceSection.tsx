@@ -47,7 +47,7 @@ export default function ExperienceSection() {
       <div className="relative max-w-5xl mx-auto pl-8 sm:pl-16 md:pl-20 z-10 flex flex-col gap-12">
         {/* Section Header */}
         <div className="flex flex-col items-start gap-4 max-w-xl">
-          <SectionLabel label="03 / Work History" />
+          <SectionLabel label="05 / Work History" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
             Engineering Journey
           </h2>

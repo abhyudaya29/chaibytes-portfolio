@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, ArrowRight, AppWindow } from "lucide-react";
+import { Github, ExternalLink, ArrowRight, AppWindow, ArrowUpRight } from "lucide-react";
 import { PROJECTS_DATA } from "@/lib/constants";
 import SectionLabel from "../shared/SectionLabel";
 import ProjectCard3D from "./ProjectCard3D";
@@ -26,7 +26,7 @@ export default function ProjectsSection() {
         
         {/* Header copy */}
         <div className="flex flex-col items-start gap-4 max-w-2xl">
-          <SectionLabel label="04 / Products Built" />
+          <SectionLabel label="02 / Products Built" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
             Intelligent Products
           </h2>
@@ -74,17 +74,19 @@ export default function ProjectsSection() {
                     </div>
 
                     <div className="flex items-center gap-4 shrink-0 sm:ml-auto">
-                      <a
-                        href={featuredProject.githubUrl}
-                        className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent-primary transition-colors font-medium"
-                      >
-                        <Github className="w-4 h-4" /> Code
-                      </a>
+                      {featuredProject.githubUrl && featuredProject.githubUrl !== "#" && (
+                        <a
+                          href={featuredProject.githubUrl}
+                          className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent-primary transition-colors font-medium"
+                        >
+                          <Github className="w-4 h-4" /> Code
+                        </a>
+                      )}
                       <a
                         href={featuredProject.liveUrl}
                         className="flex items-center gap-1.5 text-xs text-accent-primary hover:text-accent-hover transition-colors font-semibold"
                       >
-                        Launch <ExternalLink className="w-4 h-4" />
+                        Explore {featuredProject.name} <ArrowUpRight className="w-4 h-4" />
                       </a>
                     </div>
                   </div>
@@ -93,11 +95,11 @@ export default function ProjectsSection() {
                 {/* Simulated Visual Mockup / Interface Code Code (cols 5) */}
                 <div className="lg:col-span-5 relative w-full h-[220px] sm:h-[260px] rounded-xl overflow-hidden bg-bg-base/80 border border-border-custom/50 p-4 font-mono text-[11px] text-text-secondary/70 shadow-inner flex flex-col justify-between">
                   <div className="flex justify-between items-center text-[9px] text-text-secondary/30 uppercase tracking-widest border-b border-border-custom/30 pb-2">
-                    <span>vira_voice_agent.py</span>
+                    <span>vaidya_voice_agent.py</span>
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   </div>
                   <pre className="flex-1 py-3 text-[10px] overflow-y-auto scrollbar-none text-accent-hover/80 leading-relaxed font-mono">
-{`async def vira_speech_orchestrator():
+{`async def vaidya_speech_orchestrator():
     # Multilingual Hinglish router
     stream = await speech_to_text(caller_input)
     intent = analyze_code_switching(stream.text)
@@ -160,11 +162,16 @@ export default function ProjectsSection() {
                       ))}
                     </div>
                     <div className="flex items-center gap-3">
-                      <a href={project.githubUrl} className="text-text-secondary hover:text-accent-primary transition-colors">
-                        <Github className="w-4 h-4" />
-                      </a>
-                      <a href={project.liveUrl} className="text-text-secondary hover:text-accent-primary transition-colors">
-                        <ExternalLink className="w-4 h-4" />
+                      {project.githubUrl && project.githubUrl !== "#" && (
+                        <a href={project.githubUrl} className="text-text-secondary hover:text-accent-primary transition-colors" title="View Source Code">
+                          <Github className="w-4 h-4" />
+                        </a>
+                      )}
+                      <a 
+                        href={project.liveUrl} 
+                        className="flex items-center gap-1 text-xs text-accent-primary hover:text-accent-hover font-semibold transition-colors"
+                      >
+                        Explore <ArrowUpRight className="w-3.5 h-3.5" />
                       </a>
                     </div>
                   </div>

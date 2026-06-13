@@ -51,13 +51,13 @@ export default function Home() {
 
       <FreelanceSection />
       
-      <AboutSection />
+      <ProjectsSection />
 
       <TeamSection />
       
-      <ExperienceSection />
+      <AboutSection />
       
-      <ProjectsSection />
+      <ExperienceSection />
       
       <SkillsSection />
       

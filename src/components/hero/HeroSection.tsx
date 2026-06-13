@@ -143,7 +143,7 @@ export default function HeroSection() {
             className="flex flex-wrap items-center gap-4 pt-4"
           >
             <ShimmerButton onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
-              View Projects
+              Explore Products
             </ShimmerButton>
 
             <button

@@ -55,7 +55,7 @@ export default function AboutSection() {
         
         {/* Header copy */}
         <motion.div style={{ opacity }} className="flex flex-col items-start gap-4 max-w-2xl">
-          <SectionLabel label="02 / Executive Summary" />
+          <SectionLabel label="04 / Executive Summary" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
             {ABOUT_CONTENT.title}
           </h2>

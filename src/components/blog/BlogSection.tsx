@@ -115,7 +115,7 @@ export default function BlogSection() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
           <div className="flex flex-col items-start gap-4 max-w-2xl">
-            <SectionLabel label="07 / Intellect Feed" />
+            <SectionLabel label="08 / Intellect Feed" />
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
               ChaiBytes Blog
             </h2>

@@ -52,7 +52,7 @@ export default function SkillsSection() {
         
         {/* Section Header */}
         <div className="flex flex-col items-start gap-4 max-w-2xl">
-          <SectionLabel label="05 / Technology Vector" />
+          <SectionLabel label="06 / Technology Vector" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
             Capability Index
           </h2>

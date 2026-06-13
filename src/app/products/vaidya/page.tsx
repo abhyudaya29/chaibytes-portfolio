@@ -28,23 +28,23 @@ import SectionLabel from "@/components/shared/SectionLabel";
 const FAQS = [
   {
     q: "Do I need to change my phone number?",
-    a: "No. You keep your existing business phone number. Vira integrates directly with it, routing calls seamlessly through our Exotel telephony pipeline without requiring any hardware modifications."
+    a: "No. You keep your existing business phone number. Vaidya integrates directly with it, routing calls seamlessly through our Exotel telephony pipeline without requiring any hardware modifications."
   },
   {
     q: "What if a caller speaks Hindi and I'm an English-only business?",
-    a: "You configure Vira's language rules. Vira can be instructed to politely request English, or fully switch to Hindi or regional dialects dynamically. If your settings dictate a strict language, Vira handles it smoothly."
+    a: "You configure Vaidya's language rules. Vaidya can be instructed to politely request English, or fully switch to Hindi or regional dialects dynamically. If your settings dictate a strict language, Vaidya handles it smoothly."
   },
   {
     q: "Does it work with Indian phone numbers?",
-    a: "Yes. Vira is specifically built from the ground up to support Indian mobile and virtual numbers via direct telecom carrier integrations like Exotel."
+    a: "Yes. Vaidya is specifically built from the ground up to support Indian mobile and virtual numbers via direct telecom carrier integrations like Exotel."
   },
   {
-    q: "Can I upload my own documents for Vira to learn from?",
-    a: "Absolutely. You can upload PDFs, Word docs, CSVs, or enter your website URL in the dashboard. Vira searches this database in real time during a call to answer client queries accurately."
+    q: "Can I upload my own documents for Vaidya to learn from?",
+    a: "Absolutely. You can upload PDFs, Word docs, CSVs, or enter your website URL in the dashboard. Vaidya searches this database in real time during a call to answer client queries accurately."
   },
   {
-    q: "What if a caller has a complex question Vira can't answer?",
-    a: "If a caller asks something outside Vira's knowledge base, she can intelligently transfer the call to your human team members or collect call-back details for follow-ups."
+    q: "What if a caller has a complex question Vaidya can't answer?",
+    a: "If a caller asks something outside Vaidya's knowledge base, it can intelligently transfer the call to your human team members or collect call-back details for follow-ups."
   },
   {
     q: "Is there a chat version for my website?",
@@ -199,7 +199,7 @@ export default function VaidyaProduct() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed max-w-2xl font-body"
           >
-            Meet Vira — an AI receptionist that answers every call, books appointments, handles over-the-phone payments, and transfers queries. Speaks fluent Hindi, Telugu, Marathi, and all major Indian languages.
+            Vaidya will handle your calls. An AI receptionist that answers every call, books appointments, handles over-the-phone payments, and transfers queries. Speaks fluent Hindi, Telugu, Marathi, and all major Indian languages.
           </motion.p>
 
           <motion.div
@@ -282,10 +282,10 @@ export default function VaidyaProduct() {
               <div className="space-y-4">
                 <span className="font-mono text-[10px] tracking-widest text-accent-primary uppercase font-semibold">The Resolution</span>
                 <h2 className="text-2xl sm:text-3xl font-heading font-bold text-text-primary uppercase tracking-tight">
-                  Vira Answers, Books, and Resolves 24/7
+                  Vaidya Answers, Books, and Resolves 24/7
                 </h2>
                 <p className="text-xs sm:text-sm text-text-secondary/80 leading-relaxed font-body">
-                  Vira serves as your digital front desk agent. It handles calls instantly in the customer's native language, books calendar appointments, takes secure payments, and logs transcript insights.
+                  Vaidya serves as your digital front desk agent. It handles calls instantly in the customer's native language, books calendar appointments, takes secure payments, and logs transcript insights.
                 </p>
               </div>
 
@@ -334,9 +334,9 @@ export default function VaidyaProduct() {
             {/* Step 2 */}
             <div className="p-6 rounded-[24px] bg-bg-card/20 border border-border-custom/20 flex flex-col space-y-4">
               <span className="font-mono text-2xl font-black text-accent-primary">02</span>
-              <h3 className="text-lg font-heading font-bold uppercase text-text-primary">Train Vira</h3>
+              <h3 className="text-lg font-heading font-bold uppercase text-text-primary">Train Vaidya</h3>
               <p className="text-xs text-text-secondary/80 leading-relaxed font-body">
-                Upload your service brochure, schedule calendars, FAQs, or catalog pricing PDF document. Vira parses it dynamically to answer questions accurately like a well-trained agent.
+                Upload your service brochure, schedule calendars, FAQs, or catalog pricing PDF document. Vaidya parses it dynamically to answer questions accurately like a well-trained agent.
               </p>
             </div>
 
@@ -345,7 +345,7 @@ export default function VaidyaProduct() {
               <span className="font-mono text-2xl font-black text-accent-primary">03</span>
               <h3 className="text-lg font-heading font-bold uppercase text-text-primary">Go Live</h3>
               <p className="text-xs text-text-secondary/80 leading-relaxed font-body">
-                Vira handles incoming calls instantly. She replies to customer inquiries, registers calendar slots, collects deposits, and routes complex calls to your core team.
+                Vaidya handles incoming calls instantly. It replies to customer inquiries, registers calendar slots, collects deposits, and routes complex calls to your core team.
               </p>
             </div>
 
@@ -407,7 +407,7 @@ export default function VaidyaProduct() {
                 Built For How India Communicates
               </h2>
               <p className="text-sm text-text-secondary leading-relaxed font-body">
-                Most global voice bots are designed for English-only systems and fail when callers jump between languages. Vira is built specifically for Indian bilingual workflows:
+                Most global voice bots are designed for English-only systems and fail when callers jump between languages. Vaidya is built specifically for Indian bilingual workflows:
               </p>
               
               <div className="space-y-4 font-body text-xs text-text-secondary/90">
@@ -421,14 +421,14 @@ export default function VaidyaProduct() {
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-accent-primary shrink-0 mt-0.5" />
-                  <span><strong>Bilingual intent workflows:</strong> Whether your customer says <i>\"appointment schedule karna tha\"</i> or <i>\"I need to book a slot\"</i>, Vira gets it.</span>
+                  <span><strong>Bilingual intent workflows:</strong> Whether your customer says <i>\"appointment schedule karna tha\"</i> or <i>\"I need to book a slot\"</i>, Vaidya gets it.</span>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-6 p-6 sm:p-8 rounded-[32px] bg-bg-card/40 border border-border-custom/40 backdrop-blur-md">
               <div className="flex justify-between items-center text-[10px] font-mono text-text-secondary/40 border-b border-border-custom/20 pb-3 mb-6">
-                <span>VIRA LANGUAGE CONTEXT DETECTOR</span>
+                <span>VAIDYA LANGUAGE CONTEXT DETECTOR</span>
                 <span className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
               </div>
 
@@ -440,7 +440,7 @@ export default function VaidyaProduct() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-bg-base/70 border border-border-custom/30 text-accent-hover">
-                  <span className="text-text-secondary/40 block uppercase tracking-wider text-[9px] mb-1 font-bold">Vira Speech Parser:</span>
+                  <span className="text-text-secondary/40 block uppercase tracking-wider text-[9px] mb-1 font-bold">Vaidya Speech Parser:</span>
                   * Intent: Book Appointment<br />
                   * Day: Tomorrow (June 14)<br />
                   * Time Target: 17:00 IST<br />
@@ -448,7 +448,7 @@ export default function VaidyaProduct() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-accent-primary/10 border border-accent-primary/30 text-text-primary">
-                  <span className="text-accent-primary block uppercase tracking-wider text-[9px] mb-1 font-bold">Vira Live Response (Speech Output):</span>
+                  <span className="text-accent-primary block uppercase tracking-wider text-[9px] mb-1 font-bold">Vaidya Live Response (Speech Output):</span>
                   \"Dr. Sharma kal shaam 5 baje available hain. Kya main aapka slot book kar doon?\"
                 </div>
               </div>

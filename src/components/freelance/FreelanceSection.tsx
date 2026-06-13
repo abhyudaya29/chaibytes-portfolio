@@ -36,12 +36,12 @@ export default function FreelanceSection() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col items-start gap-4 max-w-2xl mb-12">
-          <SectionLabel label="07 / Freelance" />
+          <SectionLabel label="01 / Work with us" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
-            Work with me.
+            Work with us.
           </h2>
           <p className="text-sm sm:text-base text-text-secondary leading-relaxed font-body">
-            Available for contract and freelance projects. I work with founders and startups who need to move fast — web apps, AI tools, or a full SaaS shipped from scratch.
+            Available for contract and freelance projects. We work with founders and startups who need to move fast — web apps, AI tools, or a full SaaS shipped from scratch.
           </p>
 
           {/* Availability bar */}

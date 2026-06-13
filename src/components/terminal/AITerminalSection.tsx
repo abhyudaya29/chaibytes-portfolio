@@ -34,7 +34,7 @@ export default function AITerminalSection() {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center gap-4 max-w-xl mx-auto">
-          <SectionLabel label="06 / Code Showcase" />
+          <SectionLabel label="07 / Code Showcase" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
             Systems Console
           </h2>
