@@ -23,6 +23,8 @@ import Link from "next/link";
 import NoiseBg from "@/components/shared/NoiseBg";
 import CustomCursor from "@/components/shared/CustomCursor";
 import SectionLabel from "@/components/shared/SectionLabel";
+import { SparklesText } from "@/components/ui/sparkles-text";
+import { Highlighter } from "@/components/ui/highlighter";
 
 // FAQ Dataset
 const FAQS = [
@@ -135,9 +137,13 @@ export default function VaidyaProduct() {
             </Link>
             <span className="text-border-custom/50">|</span>
             <div className="flex items-center gap-2">
-              <span className="font-heading font-black text-sm tracking-tight text-text-primary uppercase">
+              <SparklesText
+                className="font-heading font-black text-sm tracking-tight text-text-primary uppercase"
+                sparklesCount={4}
+                colors={{ first: "#C8430A", second: "#FFA07A" }}
+              >
                 Vaidya
-              </span>
+              </SparklesText>
               <span className="px-1.5 py-0.5 rounded text-[8px] font-mono bg-accent-primary/10 border border-accent-primary/30 text-accent-primary uppercase tracking-widest">
                 AI Voice OS
               </span>
@@ -199,7 +205,10 @@ export default function VaidyaProduct() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed max-w-2xl font-body"
           >
-            Vaidya will handle your calls. An AI receptionist that answers every call, books appointments, handles over-the-phone payments, and transfers queries. Speaks fluent Hindi, Telugu, Marathi, and all major Indian languages.
+            <Highlighter action="highlight" color="rgba(200, 67, 10, 0.25)" strokeWidth={1.5} animationDuration={800} isView={true}>
+              Vaidya will handle your calls.
+            </Highlighter>{" "}
+            An AI receptionist that answers every call, books appointments, handles over-the-phone payments, and transfers queries. Speaks fluent Hindi, Telugu, Marathi, and all major Indian languages.
           </motion.p>
 
           <motion.div
