@@ -40,6 +40,40 @@ export function sanitizeBlogContent(content: string): string {
   return cleaned;
 }
 
+export function convertBlocksToMarkdown(blocksList: any[]): string {
+  if (!Array.isArray(blocksList)) return "";
+
+  return blocksList
+    .map((block) => {
+      const type = block.type;
+      const data = block.data || {};
+      
+      switch (type) {
+        case "paragraph": {
+          return data.text || "";
+        }
+        case "header": {
+          const level = data.level || 1;
+          const hashes = "#".repeat(level);
+          const text = (data.text || "").replace(/#+$/, "").trim();
+          return `${hashes} ${text}`;
+        }
+        case "list": {
+          const items = data.items || [];
+          const style = data.style === "ordered" ? "1. " : "- ";
+          
+          return items
+            .flatMap((item: string) => item.split("\n"))
+            .map((item: string) => `${style}${item.trim()}`)
+            .join("\n");
+        }
+        default:
+          return data.text || "";
+      }
+    })
+    .join("\n\n");
+}
+
 // Local filesystem fallback function for all posts
 function getLocalAllPosts(): PostData[] {
   if (!fs.existsSync(postsDirectory)) {
@@ -127,7 +161,10 @@ export async function getAllPosts(): Promise<PostData[]> {
     }
 
     const mappedPosts: PostData[] = blogs.map((blog: any) => {
-      const content = sanitizeBlogContent(blog.content || "");
+      const rawContent = blog.blocks && Array.isArray(blog.blocks) && blog.blocks.length > 0
+        ? convertBlocksToMarkdown(blog.blocks)
+        : (blog.content || "");
+      const content = sanitizeBlogContent(rawContent);
       const rt = readingTime(content);
       const dateVal = blog.published_at || blog.created_at || blog.updated_at || new Date().toISOString();
       const dateString = dateVal.split("T")[0]; // Use YYYY-MM-DD portion
@@ -174,7 +211,10 @@ export async function getPostBySlug(slug: string): Promise<PostData | null> {
       throw new Error("API did not return a valid blog object");
     }
 
-    const content = sanitizeBlogContent(blog.content || "");
+    const rawContent = blog.blocks && Array.isArray(blog.blocks) && blog.blocks.length > 0
+      ? convertBlocksToMarkdown(blog.blocks)
+      : (blog.content || "");
+    const content = sanitizeBlogContent(rawContent);
     const rt = readingTime(content);
     const dateVal = blog.published_at || blog.created_at || blog.updated_at || new Date().toISOString();
     const dateString = dateVal.split("T")[0];
