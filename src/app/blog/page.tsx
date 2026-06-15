@@ -106,6 +106,17 @@ export default async function BlogPage() {
                   className="group p-6 rounded-2xl bg-bg-card/45 border border-border-custom/50 backdrop-blur-md hover:border-accent-primary/30 hover:shadow-[0_0_30px_rgba(200,67,10,0.05)] transition-all duration-300 flex flex-col justify-between min-h-[260px]"
                 >
                   <div className="space-y-4">
+                    {post.coverImage && (
+                      <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl border border-border-custom/30 bg-bg-base/50">
+                        <img
+                          src={post.coverImage}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+
                     <div className="flex items-center justify-between text-[10px] font-mono text-text-secondary/40">
                       <span className="flex items-center gap-1">
                         <Clock className="w-3.5 h-3.5 text-accent-primary/80" />

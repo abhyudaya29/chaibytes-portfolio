@@ -14,6 +14,7 @@ export interface PostData {
   tags: string[];
   readingTime: string;
   content: string;
+  coverImage?: string;
 }
 
 export function sanitizeBlogContent(content: string): string {
@@ -99,6 +100,7 @@ function getLocalAllPosts(): PostData[] {
         tags: data.tags || [],
         readingTime: rt.text,
         content: sanitizeBlogContent(content),
+        coverImage: data.coverImage || "",
       };
     });
 
@@ -132,6 +134,7 @@ function getLocalPostBySlug(slug: string): PostData | null {
       tags: data.tags || [],
       readingTime: rt.text,
       content: sanitizeBlogContent(content),
+      coverImage: data.coverImage || "",
     };
   } catch (error) {
     return null;
@@ -177,6 +180,7 @@ export async function getAllPosts(): Promise<PostData[]> {
         tags: blog.tags || [],
         readingTime: rt.text,
         content,
+        coverImage: blog.cover_image_url || "",
       };
     });
 
@@ -227,6 +231,7 @@ export async function getPostBySlug(slug: string): Promise<PostData | null> {
       tags: blog.tags || [],
       readingTime: rt.text,
       content,
+      coverImage: blog.cover_image_url || "",
     };
   } catch (error) {
     console.warn(`Failed to fetch blog slug "${slug}" from API (${error instanceof Error ? error.message : String(error)}). Falling back to local MDX file.`);

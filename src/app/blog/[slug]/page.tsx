@@ -149,6 +149,17 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
             </div>
           </header>
 
+          {/* Featured Cover Image */}
+          {post.coverImage && (
+            <div className="relative w-full aspect-[16/9] mb-12 overflow-hidden rounded-2xl border border-border-custom/30 shadow-2xl bg-bg-card/30">
+              <img
+                src={post.coverImage}
+                alt={post.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+
           {/* Article Body */}
           <article className="prose prose-invert max-w-none prose-orange prose-headings:font-heading prose-headings:uppercase prose-headings:tracking-wide prose-p:text-text-secondary/90 prose-p:leading-relaxed prose-code:text-accent-primary prose-a:text-accent-primary hover:prose-a:text-accent-hover transition-colors font-body">
             {post.content.trim().startsWith("<") || post.content.includes("</p>") || post.content.includes("</h2>") ? (
