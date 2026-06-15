@@ -16,6 +16,30 @@ export interface PostData {
   content: string;
 }
 
+export function sanitizeBlogContent(content: string): string {
+  if (!content) return "";
+  
+  let cleaned = content;
+
+  // 1. Remove any `![caption]` tags that are not followed by a URL (orphan/caption wrappers)
+  cleaned = cleaned.replace(/!\[caption\]\((?!(?:https?:\/\/|\/))/g, '');
+
+  // 2. Fix empty link placeholders like `Visit[](url)[to learn more.`
+  cleaned = cleaned.replace(/Visit\s*\[\]\((https?:\/\/[^\)]+)\)\[to learn more\.?/gi, 'Visit [Vaidya]($1) to learn more. ');
+  cleaned = cleaned.replace(/\[\]\((https?:\/\/[^\)]+)\)/g, '[Link]($1)');
+  cleaned = cleaned.replace(/\[to learn more\.?/gi, ' to learn more. ');
+
+  // 3. Close malformed image tags like `![caption](url![caption](`
+  cleaned = cleaned.replace(/!\[caption\]\((https?:\/\/[^\s\!]+?\.(?:png|jpg|jpeg|gif|webp|svg))(?![\)])/gi, '![caption]($1)');
+
+  // 4. Parse custom `[cta:Label](url)` blocks and replace them with HTML styled as modern buttons
+  cleaned = cleaned.replace(/\[cta:([^\]]+)\]\(([^)]+)\)/g, (match, label, url) => {
+    return `<div class="not-prose my-8"><a href="${url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-accent-primary hover:bg-accent-hover text-text-primary px-6 py-3 rounded-md font-medium tracking-wide transition-all duration-300 no-underline uppercase text-xs border border-accent-primary/20 hover:shadow-[0_0_15px_rgba(200,67,10,0.4)] cursor-pointer">${label}</a></div>`;
+  });
+
+  return cleaned;
+}
+
 // Local filesystem fallback function for all posts
 function getLocalAllPosts(): PostData[] {
   if (!fs.existsSync(postsDirectory)) {
@@ -40,7 +64,7 @@ function getLocalAllPosts(): PostData[] {
         description: data.description || "",
         tags: data.tags || [],
         readingTime: rt.text,
-        content,
+        content: sanitizeBlogContent(content),
       };
     });
 
@@ -73,7 +97,7 @@ function getLocalPostBySlug(slug: string): PostData | null {
       description: data.description || "",
       tags: data.tags || [],
       readingTime: rt.text,
-      content,
+      content: sanitizeBlogContent(content),
     };
   } catch (error) {
     return null;
@@ -103,7 +127,7 @@ export async function getAllPosts(): Promise<PostData[]> {
     }
 
     const mappedPosts: PostData[] = blogs.map((blog: any) => {
-      const content = blog.content || "";
+      const content = sanitizeBlogContent(blog.content || "");
       const rt = readingTime(content);
       const dateVal = blog.published_at || blog.created_at || blog.updated_at || new Date().toISOString();
       const dateString = dateVal.split("T")[0]; // Use YYYY-MM-DD portion
@@ -150,7 +174,7 @@ export async function getPostBySlug(slug: string): Promise<PostData | null> {
       throw new Error("API did not return a valid blog object");
     }
 
-    const content = blog.content || "";
+    const content = sanitizeBlogContent(blog.content || "");
     const rt = readingTime(content);
     const dateVal = blog.published_at || blog.created_at || blog.updated_at || new Date().toISOString();
     const dateString = dateVal.split("T")[0];
