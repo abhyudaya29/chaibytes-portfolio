@@ -262,3 +262,48 @@ export async function getPostBySlug(slug: string): Promise<PostData | null> {
     return getLocalPostBySlug(slug);
   }
 }
+
+export function convertMarkdownToHtml(markdown: string): string {
+  if (!markdown) return "";
+  
+  let html = markdown;
+
+  // Normalize newlines
+  html = html.replace(/\r\n/g, '\n');
+
+  // Insert double newlines around headings to isolate them
+  html = html.replace(/^(#+ .*?)$/gm, '\n\n$1\n\n');
+  
+  // Insert double newlines around list items to isolate them
+  html = html.replace(/^(\-\s+.*?)$/gm, '\n\n$1\n\n');
+
+  // 1. Headers: h1, h2, h3
+  html = html.replace(/^### (.*?)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
+
+  // 2. Bold / Strong
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+  // 3. Lists: Unordered lists
+  html = html.replace(/^\-\s+(.*?)$/gm, '<li>$1</li>');
+  
+  // Wrap adjacent <li> groups in <ul>
+  html = html.replace(/(?:^<li>[\s\S]*?<\/li>\s*)+/gm, (match) => {
+    return `<ul>\n${match.trim()}\n</ul>\n`;
+  });
+
+  // 4. Paragraphs: wrap non-HTML blocks in <p>
+  const parts = html.split(/\n\n+/);
+  html = parts.map(part => {
+    const trimmed = part.trim();
+    if (!trimmed) return "";
+    // If it already starts with an HTML block-level element, leave it alone
+    if (/^<(h[1-6]|ul|ol|li|blockquote|div|p|a|span|img)/i.test(trimmed)) {
+      return trimmed;
+    }
+    return `<p>${trimmed.replace(/\n/g, '<br />')}</p>`;
+  }).filter(Boolean).join('\n\n');
+
+  return html;
+}

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, convertMarkdownToHtml } from "@/lib/blog";
 
 export const dynamic = "force-dynamic";
 
@@ -11,8 +11,8 @@ export async function GET() {
       link: `/blog/${post.slug}`,
       pubDate: post.date,
       description: post.description,
-      content: post.content,
-      thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+      content: convertMarkdownToHtml(post.content),
+      thumbnail: post.coverImage || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
       categories: post.tags,
     }));
     return NextResponse.json({ success: true, posts: formattedPosts });

@@ -28,8 +28,8 @@ export default function BlogLayout() {
   const postsPerPage = 4;
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
-  const CACHE_KEY = "medium_blog_posts_v1";
-  const CACHE_TIME_KEY = "medium_blog_posts_timestamp_v1";
+  const CACHE_KEY = "medium_blog_posts_v2";
+  const CACHE_TIME_KEY = "medium_blog_posts_timestamp_v2";
   const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
 
   // Fetch articles from our API with localstorage caching
