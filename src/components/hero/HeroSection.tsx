@@ -152,15 +152,6 @@ export default function HeroSection() {
             >
               Contact Me
             </button>
-
-            <a
-              href={PERSONAL_INFO.resumeUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1 text-sm font-medium text-text-secondary hover:text-accent-primary transition-colors pl-2"
-            >
-              Resume <ArrowUpRight className="w-4 h-4" />
-            </a>
           </motion.div>
 
           {/* Floating pills indicator list */}

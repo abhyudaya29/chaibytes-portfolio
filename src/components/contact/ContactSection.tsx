@@ -46,7 +46,7 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Call to Actions (Mail & Resume) */}
+            {/* Call to Actions (Mail Only) */}
             <div className="flex flex-wrap gap-4 pt-2">
               <a href={`mailto:${emailAddress}`}>
                 <ShimmerButton className="flex items-center gap-2">
@@ -54,19 +54,6 @@ export default function ContactSection() {
                   <span>Send an Email</span>
                 </ShimmerButton>
               </a>
-
-              <motion.a
-                href={PERSONAL_INFO.resumeUrl}
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center gap-2 px-6 py-3 rounded-full bg-bg-elevated border border-border-custom text-sm font-medium text-text-primary hover:border-accent-primary/40 hover:bg-bg-card transition-all duration-300"
-              >
-                <FileText className="w-4 h-4 text-text-secondary" />
-                <span>View Resume</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-text-secondary" />
-              </motion.a>
             </div>
           </div>
 

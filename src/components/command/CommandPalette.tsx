@@ -136,13 +136,6 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
       icon: <Mail className="w-3.5 h-3.5 text-text-secondary" />,
       action: () => window.open(`mailto:${PERSONAL_INFO.email}`, "_self"),
     },
-    {
-      id: "action-resume",
-      title: "Download Resume",
-      category: "Actions",
-      icon: <FileText className="w-3.5 h-3.5 text-text-secondary" />,
-      action: () => window.open(PERSONAL_INFO.resumeUrl, "_blank"),
-    },
   ];
 
   const scrollToSection = (id: string) => {

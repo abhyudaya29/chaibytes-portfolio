@@ -107,7 +107,7 @@ export default function ProjectsSection() {
                     src="/vaidya_graphic.jpg"
                     alt="Vaidya AI Receptionist Dashboard"
                     fill
-                    className="object-cover"
+                    className="object-contain bg-bg-card"
                     sizes="(max-w-768px) 100vw, 33vw"
                     priority
                   />
