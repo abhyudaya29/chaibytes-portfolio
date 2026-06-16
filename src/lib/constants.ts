@@ -128,7 +128,7 @@ export const PROJECTS_DATA = [
       "Vaidya will handle your calls. An AI-powered voice receptionist for Indian businesses that answers every call, books appointments, handles over-the-phone payments, and transfers calls. Powered by Exotel, it natively supports Hinglish code-switching and all major Indian languages.",
     highlight: "Custom LLM speech orchestration, Hinglish code-switching parsing, and Exotel carrier integration.",
     tech: ["Next.js", "FastAPI", "Exotel API", "Python", "Vapi", "PostgreSQL", "Redis"],
-    liveUrl: "https://vaidya.chaibytes.in/",
+    liveUrl: "/products/vaidya",
     githubUrl: "#",
     featured: true,
   },

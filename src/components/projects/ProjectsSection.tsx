@@ -92,11 +92,36 @@ export default function ProjectsSection() {
                           <Github className="w-4 h-4" /> Code
                         </span>
                       )}
-                      <span
-                        className="flex items-center gap-1.5 text-xs text-accent-primary hover:text-accent-hover transition-colors font-semibold"
-                      >
-                        Explore {featuredProject.name} <ArrowUpRight className="w-4 h-4" />
-                      </span>
+                      {featuredProject.id === "vaidya" ? (
+                        <>
+                          <span
+                            className="flex items-center gap-1.5 text-xs text-accent-primary hover:text-accent-hover transition-colors font-semibold"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              window.open("https://vaidya.chaibytes.in/", "_blank");
+                            }}
+                          >
+                            Try {featuredProject.name} <ArrowUpRight className="w-4 h-4" />
+                          </span>
+                          <span
+                            className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent-primary transition-colors font-medium ml-2"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              window.open("/products/vaidya", "_self");
+                            }}
+                          >
+                            Explore {featuredProject.name} ↗
+                          </span>
+                        </>
+                      ) : (
+                        <span
+                          className="flex items-center gap-1.5 text-xs text-accent-primary hover:text-accent-hover transition-colors font-semibold"
+                        >
+                          Explore {featuredProject.name} <ArrowUpRight className="w-4 h-4" />
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
