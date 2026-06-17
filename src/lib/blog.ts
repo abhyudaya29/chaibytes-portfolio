@@ -15,11 +15,12 @@ export interface PostData {
   readingTime: string;
   content: string;
   coverImage?: string;
+  authorName?: string;
 }
 
 export function sanitizeBlogContent(content: string): string {
   if (!content) return "";
-  
+
   let cleaned = content;
 
   // 1. Remove any `![caption]` tags that are not followed by a URL (orphan/caption wrappers)
@@ -72,7 +73,7 @@ export function convertBlocksToMarkdown(blocksList: any[]): string {
     .map((block) => {
       const type = block.type;
       const data = block.data || {};
-      
+
       switch (type) {
         case "paragraph": {
           return data.text || "";
@@ -86,7 +87,7 @@ export function convertBlocksToMarkdown(blocksList: any[]): string {
         case "list": {
           const items = data.items || [];
           const style = data.style === "ordered" ? "1. " : "- ";
-          
+
           return items
             .flatMap((item: string) => item.split("\n"))
             .map((item: string) => `${style}${item.trim()}`)
@@ -205,6 +206,7 @@ export async function getAllPosts(): Promise<PostData[]> {
         readingTime: rt.text,
         content,
         coverImage: blog.cover_image_url || "",
+        authorName: blog.author_name,
       };
     });
 
@@ -256,6 +258,7 @@ export async function getPostBySlug(slug: string): Promise<PostData | null> {
       readingTime: rt.text,
       content,
       coverImage: blog.cover_image_url || "",
+      authorName: blog.author_name,
     };
   } catch (error) {
     console.warn(`Failed to fetch blog slug "${slug}" from API (${error instanceof Error ? error.message : String(error)}). Falling back to local MDX file.`);

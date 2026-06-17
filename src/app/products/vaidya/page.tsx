@@ -4,14 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Phone,
   Calendar,
-  DollarSign,
   MessageSquare,
   Globe,
-  UploadCloud,
   TrendingUp,
   FileText,
   Clock,
-  ArrowRight,
   ShieldCheck,
   ChevronDown,
   Sparkles,
@@ -30,15 +27,15 @@ import { Highlighter } from "@/components/ui/highlighter";
 const FAQS = [
   {
     q: "Do I need to change my phone number?",
-    a: "No. You keep your existing business phone number. Vaidya integrates directly with it, routing calls seamlessly through our Exotel telephony pipeline without requiring any hardware modifications."
+    a: "No. You keep your existing business phone number. Vaidya integrates directly with it, routing calls seamlessly through our telephony pipeline without requiring any hardware modifications."
   },
   {
-    q: "What if a caller speaks Hindi and I'm an English-only business?",
-    a: "You configure Vaidya's language rules. Vaidya can be instructed to politely request English, or fully switch to Hindi or regional dialects dynamically. If your settings dictate a strict language, Vaidya handles it smoothly."
+    q: "What if a caller speaks a different language than my team?",
+    a: "You configure Vaidya's language rules. Vaidya can be instructed to politely request a specific language, or fully switch to the caller's preferred language dynamically. If your settings dictate a strict language, Vaidya handles it smoothly."
   },
   {
-    q: "Does it work with Indian phone numbers?",
-    a: "Yes. Vaidya is specifically built from the ground up to support Indian mobile and virtual numbers via direct telecom carrier integrations like Exotel."
+    q: "Does it work with local and international phone numbers?",
+    a: "Yes. Vaidya supports local and international numbers via direct telecom carrier integrations, making it suitable for businesses across India and globally."
   },
   {
     q: "Can I upload my own documents for Vaidya to learn from?",
@@ -68,13 +65,8 @@ const FEATURES = [
   },
   {
     icon: Globe,
-    title: "10+ Indian Languages",
-    desc: "Speaks Hindi, Telugu, Marathi, Tamil, Kannada, Hinglish, and more. Dynamically detects and follows code-switching."
-  },
-  {
-    icon: DollarSign,
-    title: "Collects Payments",
-    desc: "Triggers secure payment links via SMS/WhatsApp during calls for deposits, consultation fees, or catalog purchases."
+    title: "Multilingual Support",
+    desc: "Speaks Hindi, Telugu, Marathi, Tamil, Kannada, Hinglish, and 20+ languages globally. Dynamically detects and follows code-switching."
   },
   {
     icon: MessageSquare,
@@ -184,7 +176,7 @@ export default function VaidyaProduct() {
             className="flex items-center gap-2 px-3 py-1 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-primary font-mono text-[10px] tracking-widest uppercase"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>EXOTEL-POWERED Multilingual Voice Agent</span>
+            <span>AI-Powered Multilingual Voice Agent</span>
           </motion.div>
 
           <motion.h1
@@ -208,7 +200,7 @@ export default function VaidyaProduct() {
             <Highlighter action="highlight" color="rgba(200, 67, 10, 0.25)" strokeWidth={1.5} animationDuration={800} isView={true}>
               Vaidya will handle your calls.
             </Highlighter>{" "}
-            An AI receptionist that answers every call, books appointments, handles over-the-phone payments, and transfers queries. Speaks fluent Hindi, Telugu, Marathi, and all major Indian languages.
+            An AI receptionist that answers every call, books appointments, and transfers queries — across Indian and global businesses. Speaks fluent Hindi, Telugu, Marathi, and 20+ languages worldwide.
           </motion.p>
 
           <motion.div
@@ -336,7 +328,7 @@ export default function VaidyaProduct() {
               <span className="font-mono text-2xl font-black text-accent-primary">01</span>
               <h3 className="text-lg font-heading font-bold uppercase text-text-primary">Connect Your Number</h3>
               <p className="text-xs text-text-secondary/80 leading-relaxed font-body">
-                Configure your existing landline, virtual, or mobile number in our system. Runs smoothly on Indian telephone channels via Exotel virtual connections. No extra hardware.
+                Configure your existing landline, virtual, or mobile number in our system. Runs smoothly on telephone channels worldwide via our virtual connections. No extra hardware.
               </p>
             </div>
 
@@ -413,12 +405,12 @@ export default function VaidyaProduct() {
             <div className="lg:col-span-6 space-y-6">
               <SectionLabel label="Localization" />
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase leading-tight">
-                Built For How India Communicates
+                Built For How Your Customers Communicate
               </h2>
               <p className="text-sm text-text-secondary leading-relaxed font-body">
-                Most global voice bots are designed for English-only systems and fail when callers jump between languages. Vaidya is built specifically for Indian bilingual workflows:
+                Most voice bots are designed for English-only systems and fail when callers switch languages. Vaidya handles multilingual conversations natively — whether your customers are in India or anywhere globally:
               </p>
-              
+
               <div className="space-y-4 font-body text-xs text-text-secondary/90">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-accent-primary shrink-0 mt-0.5" />
@@ -426,11 +418,11 @@ export default function VaidyaProduct() {
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-accent-primary shrink-0 mt-0.5" />
-                  <span><strong>Exotel Integration:</strong> Powered by direct connections with Indian carriers, assuring clear audio streams and low latencies.</span>
+                  <span><strong>Carrier Integration:</strong> Powered by direct connections with telecom carriers, assuring clear audio streams and low latencies across India and internationally.</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-accent-primary shrink-0 mt-0.5" />
-                  <span><strong>Bilingual intent workflows:</strong> Whether your customer says <i>\"appointment schedule karna tha\"</i> or <i>\"I need to book a slot\"</i>, Vaidya gets it.</span>
+                  <span><strong>Multilingual intent workflows:</strong> Whether your customer says <i>\"appointment schedule karna tha\"</i> or <i>\"I need to book a slot\"</i>, Vaidya gets it.</span>
                 </div>
               </div>
             </div>
@@ -474,7 +466,7 @@ export default function VaidyaProduct() {
           <div className="flex flex-col items-center text-center gap-4 mb-16 max-w-2xl mx-auto">
             <SectionLabel label="Verticals" />
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
-              Built For Every Indian Business
+              Built For Every Business
             </h2>
           </div>
 

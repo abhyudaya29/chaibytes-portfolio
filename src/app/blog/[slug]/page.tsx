@@ -7,7 +7,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import NoiseBg from "@/components/shared/NoiseBg";
 import CustomCursor from "@/components/shared/CustomCursor";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 
 const options = {
   theme: "one-dark-pro",
@@ -127,6 +127,15 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                 <Clock className="w-3.5 h-3.5 text-accent-primary" />
                 {post.readingTime}
               </span>
+              {post.authorName && (
+                <>
+                  <span className="w-1.5 h-1.5 rounded-full bg-border-custom" />
+                  <span className="flex items-center gap-1.5">
+                    <User className="w-3.5 h-3.5 text-accent-primary" />
+                    {post.authorName}
+                  </span>
+                </>
+              )}
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-text-primary uppercase tracking-tight leading-tight">
