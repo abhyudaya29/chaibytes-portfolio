@@ -4,7 +4,12 @@ import matter from "gray-matter";
 import readingTime from "reading-time";
 
 const postsDirectory = path.join(process.cwd(), "content/blog");
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || "https://flownextai.in/api";
+const isDev = process.env.NODE_ENV === "development";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || process.env.API_URL || (isDev ? "http://localhost:8000/api" : "https://flownextai.in/api");
+
+interface BlogFetchOptions {
+  fallbackToLocal?: boolean;
+}
 
 export interface PostData {
   slug: string;
@@ -166,10 +171,12 @@ function getLocalPostBySlug(slug: string): PostData | null {
   }
 }
 
-export async function getAllPosts(): Promise<PostData[]> {
+export async function getAllPosts(options: BlogFetchOptions = {}): Promise<PostData[]> {
+  const { fallbackToLocal = true } = options;
+
   try {
     // Attempt to fetch from external API
-    const res = await fetch(`${BASE_URL}/portfolio/blogs`, {
+    const res = await fetch(`${BASE_URL}/portfolio/blogs?include_drafts=true`, {
       cache: "no-store",
     });
 
@@ -213,22 +220,30 @@ export async function getAllPosts(): Promise<PostData[]> {
     // Sort by date descending
     return mappedPosts.sort((a, b) => (a.date < b.date ? 1 : -1));
   } catch (error) {
+    if (!fallbackToLocal) {
+      throw error;
+    }
+
     console.warn(`Failed to fetch blogs from API (${error instanceof Error ? error.message : String(error)}). Falling back to local MDX files.`);
     return getLocalAllPosts();
   }
 }
 
-export async function getPostBySlug(slug: string): Promise<PostData | null> {
+export async function getPostBySlug(slug: string, options: BlogFetchOptions = {}): Promise<PostData | null> {
+  const { fallbackToLocal = true } = options;
+
   try {
     // Attempt to fetch from external API
-    const res = await fetch(`${BASE_URL}/portfolio/blogs/${slug}`, {
+    const res = await fetch(`${BASE_URL}/portfolio/blogs/${slug}?include_drafts=true`, {
       cache: "no-store",
     });
 
     if (res.status === 404) {
       // If the API explicitly returns 404, we can check local filesystem fallback
-      const localPost = getLocalPostBySlug(slug);
-      if (localPost) return localPost;
+      if (fallbackToLocal) {
+        const localPost = getLocalPostBySlug(slug);
+        if (localPost) return localPost;
+      }
       return null;
     }
 
@@ -261,6 +276,10 @@ export async function getPostBySlug(slug: string): Promise<PostData | null> {
       authorName: blog.author_name,
     };
   } catch (error) {
+    if (!fallbackToLocal) {
+      throw error;
+    }
+
     console.warn(`Failed to fetch blog slug "${slug}" from API (${error instanceof Error ? error.message : String(error)}). Falling back to local MDX file.`);
     return getLocalPostBySlug(slug);
   }
