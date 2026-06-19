@@ -317,3 +317,37 @@ code[data-line-numbers] > [data-line]::before {
   margin: 2.5rem 0;
 }
 
+/* Magic UI Highlighter style overrides for blog posts */
+@keyframes drawHighlight {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.magic-highlight {
+  position: relative;
+  display: inline;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  isolation: isolate;
+}
+
+.magic-highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 0.125rem;
+  left: 0;
+  height: 85%;
+  width: 0%;
+  z-index: -1;
+  border-radius: 0.125rem;
+  background-color: rgba(200, 67, 10, 0.25);
+  transform-origin: left;
+  animation: drawHighlight 0.8s ease-in-out 0.4s forwards;
+}
+

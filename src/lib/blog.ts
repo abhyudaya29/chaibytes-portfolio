@@ -40,7 +40,7 @@ export function sanitizeBlogContent(content: string): string {
   cleaned = cleaned.replace(/!\[caption\]\((https?:\/\/[^\s\!]+?\.(?:png|jpg|jpeg|gif|webp|svg))(?![\)])/gi, '![caption]($1)');
 
   // 4. Custom orange-gradient text highlights (both closed and unclosed)
-  cleaned = cleaned.replace(/\[orange-gradient:([^\]\n\.]+)(\.?)\]?/gi, '<span class="bg-gradient-to-r from-accent-primary to-accent-hover bg-clip-text text-transparent font-bold">$1</span>$2');
+  cleaned = cleaned.replace(/\[orange-gradient:([^\]\n\.]+)(\.?)\]?/gi, '<span class="magic-highlight">$1</span>$2');
 
   // 5. Statistic cards: [stat: value | label]
   cleaned = cleaned.replace(/\[stat:([^:|\]]+)(?::|\|)([^\]]+)\]/gi, (match, val, label) => {
