@@ -133,6 +133,18 @@ export const PROJECTS_DATA = [
     featured: true,
   },
   {
+    id: "trueskin",
+    category: "Healthcare AI · Computer Vision",
+    name: "TrueSkin",
+    description:
+      "TrueSkin is an AI-powered, browser-based clinical pre-screening platform that enables patients to complete a comprehensive health assessment in under five minutes using only their smartphone or laptop camera. The platform combines computer vision, remote photoplethysmography (rPPG), and deep learning to screen for skin conditions, estimate cardiovascular vitals, and assess sleep apnea risk—without requiring any wearable devices or additional hardware.",
+    highlight: "Camera-based vitals estimation using remote photoplethysmography (rPPG), skin condition screening, and OSA risk assessment via MediaPipe.",
+    tech: ["React", "FastAPI", "PyTorch", "OpenCV", "MediaPipe", "Supabase"],
+    liveUrl: "https://sleep-g3ch.vercel.app/",
+    githubUrl: "#",
+    featured: false,
+  },
+  {
     id: "raytalk",
     category: "Real-time Platform",
     name: "RayTalk",
