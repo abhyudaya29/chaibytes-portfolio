@@ -140,9 +140,9 @@ export const PROJECTS_DATA = [
       "TrueSkin is an AI-powered, browser-based clinical pre-screening platform that enables patients to complete a comprehensive health assessment in under five minutes using only their smartphone or laptop camera. The platform combines computer vision, remote photoplethysmography (rPPG), and deep learning to screen for skin conditions, estimate cardiovascular vitals, and assess sleep apnea risk—without requiring any wearable devices or additional hardware.",
     highlight: "Camera-based vitals estimation using remote photoplethysmography (rPPG), skin condition screening, and OSA risk assessment via MediaPipe.",
     tech: ["React", "FastAPI", "PyTorch", "OpenCV", "MediaPipe", "Supabase"],
-    liveUrl: "https://sleep-g3ch.vercel.app/",
+    liveUrl: "https://trueskin.chaibytes.in/",
     githubUrl: "#",
-    featured: false,
+    featured: true,
   },
   {
     id: "raytalk",
@@ -168,30 +168,7 @@ export const PROJECTS_DATA = [
     githubUrl: "#",
     featured: false,
   },
-  {
-    id: "weather-intel",
-    category: "Infrastructure Visuals",
-    name: "Weather Intelligence Platform",
-    description:
-      "Real-time weather monitoring platform for Indus Towers' 200K+ tower sites across India's 22 telecom circles, with animated radar overlays and alert systems.",
-    highlight: "Large geo-spatial overlay rendering with customized Leaflet systems",
-    tech: ["React", "Leaflet.js", "FastAPI", "PostgreSQL", "Recharts"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-  },
-  {
-    id: "lms",
-    category: "Education Infrastructure",
-    name: "LMS Platform",
-    description:
-      "Role-based learning management system supporting concurrent student, teacher, and admin workflows with scalable database access and JWT auth.",
-    highlight: "Optimized relational tables handling high concurrency user flows",
-    tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-  },
+
 ];
 
 export const SKILLS_DATA = {

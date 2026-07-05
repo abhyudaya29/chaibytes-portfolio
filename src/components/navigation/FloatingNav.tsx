@@ -95,7 +95,7 @@ export default function FloatingNav({ onSearchClick }: FloatingNavProps) {
           animate={{ y: 0, opacity: 1, x: "-50%" }}
           exit={{ y: 50, opacity: 0, x: "-50%" }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-6 left-1/2 z-[999] flex items-center gap-1.5 p-2 rounded-full glass-panel border border-border-custom bg-bg-card/70 shadow-[0_10px_30px_rgba(0,0,0,0.5)] select-none shrink-0"
+          className="fixed bottom-6 left-1/2 z-[999] flex items-center gap-1.5 p-2 rounded-full glass-panel border border-border-custom bg-bg-card/70 shadow-[0_10px_30px_rgba(0,0,0,0.5)] select-none shrink-0 max-w-[95vw] md:max-w-none"
         >
           {/* Logo container */}
           <div className="flex items-center justify-center pl-2.5 pr-0.5 shrink-0 select-none">
@@ -109,35 +109,38 @@ export default function FloatingNav({ onSearchClick }: FloatingNavProps) {
           </div>
           <div className="w-[1px] h-6 bg-border-custom self-center mx-1 shrink-0" />
 
-          {NAV_ITEMS.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeSection === (item.href.startsWith("/") ? item.href.slice(1) : item.href.slice(1));
+          {/* Horizontally scrollable container on mobile */}
+          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar min-w-0 flex-1 md:flex-initial">
+            {NAV_ITEMS.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeSection === (item.href.startsWith("/") ? item.href.slice(1) : item.href.slice(1));
 
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="relative flex items-center justify-center p-2.5 sm:px-4 sm:py-2 rounded-full text-xs font-mono font-medium tracking-wide uppercase transition-all duration-300 group"
-              >
-                {/* Background active highlight tag */}
-                {isActive && (
-                  <motion.span
-                    layoutId="activeNavTab"
-                    className="absolute inset-0 rounded-full bg-accent-primary"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="relative flex items-center justify-center p-2.5 sm:px-4 sm:py-2 rounded-full text-xs font-mono font-medium tracking-wide uppercase transition-all duration-300 group shrink-0"
+                >
+                  {/* Background active highlight tag */}
+                  {isActive && (
+                    <motion.span
+                      layoutId="activeNavTab"
+                      className="absolute inset-0 rounded-full bg-accent-primary"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
 
-                <span className={`relative z-10 flex items-center gap-2 ${
-                  isActive ? "text-text-primary" : "text-text-secondary/80 group-hover:text-text-primary"
-                }`}>
-                  <Icon className="w-4 h-4 shrink-0" />
-                  <span className="hidden lg:inline">{item.label}</span>
-                </span>
-              </a>
-            );
-          })}
+                  <span className={`relative z-10 flex items-center gap-2 ${
+                    isActive ? "text-text-primary" : "text-text-secondary/80 group-hover:text-text-primary"
+                  }`}>
+                    <Icon className="w-4 h-4 shrink-0" />
+                    <span className="hidden lg:inline">{item.label}</span>
+                  </span>
+                </a>
+              );
+            })}
+          </div>
 
           {/* Divider line */}
           <div className="w-[1px] h-6 bg-border-custom self-center mx-1 shrink-0" />

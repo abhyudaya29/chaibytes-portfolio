@@ -139,7 +139,7 @@ export default function TrueSkinProduct() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://sleep-g3ch.vercel.app/"
+              href="https://trueskin.chaibytes.in/"
               target="_blank"
               rel="noreferrer"
               className="px-4 py-2 rounded-xl text-xs font-mono tracking-wider font-semibold border border-border-custom text-text-primary hover:border-accent-primary/30 transition-all select-none"
@@ -204,7 +204,7 @@ export default function TrueSkinProduct() {
               Get API Access
             </a>
             <a
-              href="https://sleep-g3ch.vercel.app/"
+              href="https://trueskin.chaibytes.in/"
               target="_blank"
               rel="noreferrer"
               className="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-border-custom hover:border-accent-primary/30 font-mono text-xs uppercase font-bold tracking-widest text-text-primary transition-all text-center"
@@ -555,7 +555,7 @@ export default function TrueSkinProduct() {
               Request Developer Access
             </a>
             <a
-              href="https://sleep-g3ch.vercel.app/"
+              href="https://trueskin.chaibytes.in/"
               target="_blank"
               rel="noreferrer"
               className="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-border-custom hover:border-accent-primary/30 font-mono text-xs uppercase font-bold tracking-widest text-text-primary transition-all text-center"

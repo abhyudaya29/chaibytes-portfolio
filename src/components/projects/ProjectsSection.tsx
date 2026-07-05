@@ -10,7 +10,7 @@ import GlowBorder from "../shared/GlowBorder";
 import { SparklesText } from "../ui/sparkles-text";
 
 export default function ProjectsSection() {
-  const featuredProject = PROJECTS_DATA.find((p) => p.featured);
+  const featuredProjects = PROJECTS_DATA.filter((p) => p.featured);
   const gridProjects = PROJECTS_DATA.filter((p) => !p.featured);
 
   // Marquee projects list (doubled for seamless infinite scroll loop)
@@ -38,115 +38,116 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        {/* Large Featured Project Card (RayTalk) */}
-        {featuredProject && (
-          <a
-            href={featuredProject.liveUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="block w-full cursor-pointer group/card"
-          >
-            <GlowBorder
-              glowColor="#C8430A"
-              duration={6}
-              containerClassName="rounded-[32px] w-full"
-              className="!p-8 sm:!p-10 !bg-bg-card/25 border border-border-custom/30 group-hover/card:border-accent-primary/40 transition-all duration-500"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
-                
-                {/* Info Area (cols 7) */}
-                <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
-                  <div className="space-y-4">
-                    <span className="font-mono text-[10px] tracking-widest text-accent-primary uppercase font-semibold">
-                      Featured Product · {featuredProject.category}
-                    </span>
-                    <SparklesText
-                      className="text-2xl sm:text-4xl font-heading font-bold text-text-primary uppercase tracking-tight block"
-                      sparklesCount={5}
-                      colors={{ first: "#C8430A", second: "#FFA07A" }}
-                    >
-                      {featuredProject.name}
-                    </SparklesText>
-                    <p className="text-[13px] sm:text-[14px] text-text-secondary leading-relaxed font-body">
-                      {featuredProject.description}
-                    </p>
-                    <div className="p-4 rounded-xl bg-bg-base/70 border border-border-custom/40 font-mono text-[11px] text-accent-hover">
-                      <span className="text-text-secondary/50 uppercase tracking-wider block text-[9px] mb-1 font-bold">
-                        Technical Milestone
-                      </span>
-                      → {featuredProject.highlight}
-                    </div>
-                  </div>
+        {/* Large Featured Project Cards */}
+        <div className="flex flex-col gap-8 w-full">
+          {featuredProjects.map((project) => {
+            const isVaidya = project.id === "vaidya";
+            const graphicSrc = isVaidya ? "/vaidya_graphic.jpg" : "/trueskin_graphic.jpg";
+            const graphicAlt = isVaidya ? "Vaidya AI Receptionist Dashboard" : "TrueSkin Clinical AI Dashboard";
+            const graphicFit = isVaidya ? "object-contain" : "object-cover";
+            const exploreUrl = isVaidya ? "/products/vaidya" : "/products/trueskin";
 
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
-                    <div className="flex items-center gap-4 shrink-0 sm:ml-auto">
-                      {featuredProject.githubUrl && featuredProject.githubUrl !== "#" && (
-                        <span
-                          className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent-primary transition-colors font-medium"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            window.open(featuredProject.githubUrl, "_blank");
-                          }}
-                        >
-                          <Github className="w-4 h-4" /> Code
+            return (
+              <a
+                key={project.id}
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="block w-full cursor-pointer group/card"
+              >
+                <GlowBorder
+                  glowColor="#C8430A"
+                  duration={6}
+                  containerClassName="rounded-[32px] w-full"
+                  className="!p-8 sm:!p-10 !bg-bg-card/25 border border-border-custom/30 group-hover/card:border-accent-primary/40 transition-all duration-500"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
+                    
+                    {/* Info Area (cols 7) */}
+                    <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
+                      <div className="space-y-4">
+                        <span className="font-mono text-[10px] tracking-widest text-accent-primary uppercase font-semibold">
+                          Featured Product · {project.category}
                         </span>
-                      )}
-                      {featuredProject.id === "vaidya" ? (
-                        <>
+                        <SparklesText
+                          className="text-2xl sm:text-4xl font-heading font-bold text-text-primary uppercase tracking-tight block"
+                          sparklesCount={5}
+                          colors={{ first: "#C8430A", second: "#FFA07A" }}
+                        >
+                          {project.name}
+                        </SparklesText>
+                        <p className="text-[13px] sm:text-[14px] text-text-secondary leading-relaxed font-body">
+                          {project.description}
+                        </p>
+                        <div className="p-4 rounded-xl bg-bg-base/70 border border-border-custom/40 font-mono text-[11px] text-accent-hover">
+                          <span className="text-text-secondary/50 uppercase tracking-wider block text-[9px] mb-1 font-bold">
+                            Technical Milestone
+                          </span>
+                          → {project.highlight}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+                        <div className="flex items-center gap-4 shrink-0 sm:ml-auto">
+                          {project.githubUrl && project.githubUrl !== "#" && (
+                            <span
+                              className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent-primary transition-colors font-medium"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                window.open(project.githubUrl, "_blank");
+                              }}
+                            >
+                              <Github className="w-4 h-4" /> Code
+                            </span>
+                          )}
                           <span
                             className="flex items-center gap-1.5 text-xs text-accent-primary hover:text-accent-hover transition-colors font-semibold"
                             onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
-                              window.open("https://vaidya.chaibytes.in/", "_blank");
+                              window.open(project.liveUrl, "_blank");
                             }}
                           >
-                            Try {featuredProject.name} <ArrowUpRight className="w-4 h-4" />
+                            Try {project.name} <ArrowUpRight className="w-4 h-4" />
                           </span>
                           <span
                             className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent-primary transition-colors font-medium ml-2"
                             onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
-                              window.open("/products/vaidya", "_self");
+                              window.open(exploreUrl, "_self");
                             }}
                           >
-                            Explore {featuredProject.name} ↗
+                            Explore {project.name} ↗
                           </span>
-                        </>
-                      ) : (
-                        <span
-                          className="flex items-center gap-1.5 text-xs text-accent-primary hover:text-accent-hover transition-colors font-semibold"
-                        >
-                          Explore {featuredProject.name} <ArrowUpRight className="w-4 h-4" />
-                        </span>
-                      )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Vaidya Product Graphic Dashboard (cols 5) */}
-                <div className="lg:col-span-5 relative w-full h-[220px] sm:h-[260px] rounded-2xl overflow-hidden border border-border-custom/40 shadow-2xl group-hover/card:scale-[1.02] transition-transform duration-500">
-                  <Image
-                    src="/vaidya_graphic.jpg"
-                    alt="Vaidya AI Receptionist Dashboard"
-                    fill
-                    className="object-contain bg-bg-card"
-                    sizes="(max-w-768px) 100vw, 33vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-base/80 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 flex items-end p-4">
-                    <span className="text-[10px] font-mono text-text-primary uppercase tracking-widest bg-bg-card/90 px-3 py-1.5 rounded-lg border border-border-custom/50">
-                      View Live Demo
-                    </span>
-                  </div>
-                </div>
+                    {/* Graphic Dashboard (cols 5) */}
+                    <div className="lg:col-span-5 relative w-full h-[220px] sm:h-[260px] rounded-2xl overflow-hidden border border-border-custom/40 shadow-2xl group-hover/card:scale-[1.02] transition-transform duration-500">
+                      <Image
+                        src={graphicSrc}
+                        alt={graphicAlt}
+                        fill
+                        className={`${graphicFit} bg-bg-card`}
+                        sizes="(max-w-768px) 100vw, 33vw"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-bg-base/80 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                        <span className="text-[10px] font-mono text-text-primary uppercase tracking-widest bg-bg-card/90 px-3 py-1.5 rounded-lg border border-border-custom/50">
+                          View Live Demo
+                        </span>
+                      </div>
+                    </div>
 
-              </div>
-            </GlowBorder>
-          </a>
-        )}
+                  </div>
+                </GlowBorder>
+              </a>
+            );
+          })}
+        </div>
 
         {/* Bento Supporting Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

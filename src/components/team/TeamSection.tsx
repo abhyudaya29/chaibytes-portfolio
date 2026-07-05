@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Cpu, Layers, Bot } from "lucide-react";
+import { Github, Linkedin, Cpu, Layers, Bot, Activity } from "lucide-react";
 import SectionLabel from "../shared/SectionLabel";
 
 const TEAM_MEMBERS = [
@@ -41,6 +41,18 @@ const TEAM_MEMBERS = [
     },
     icon: Bot,
   },
+  {
+    name: "Divyansh Srivastava",
+    role: "Software Engineer & Partner",
+    image: "/divyansh.jpg",
+    bio: "Specializes in building AI-powered healthcare platforms, real-time medical software, and scalable backend systems for connected healthcare solutions.",
+    location: "Delhi, India",
+    socials: {
+      github: "https://github.com/divyaannsh",
+      linkedin: "https://www.linkedin.com/in/divyansh-srivastav-a00127221/",
+    },
+    icon: Activity,
+  },
 ];
 
 export default function TeamSection() {
@@ -63,7 +75,7 @@ export default function TeamSection() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {TEAM_MEMBERS.map((member, index) => {
             const IconComponent = member.icon;
             return (

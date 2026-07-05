@@ -351,3 +351,13 @@ code[data-line-numbers] > [data-line]::before {
   animation: drawHighlight 0.8s ease-in-out 0.4s forwards;
 }
 
+/* Scrollbar and custom overflow helpers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
