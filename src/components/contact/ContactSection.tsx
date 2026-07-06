@@ -129,7 +129,7 @@ export default function ContactSection() {
         {/* Footer/Links Row */}
         <div className="mt-20 pt-8 border-t border-border-custom/50 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-xs font-mono text-text-secondary">
-            © {new Date().getFullYear()} ChaiBytes by Abhyudaya Dubey. Built with Next.js 15, Tailwind v4 & Framer Motion.
+            © {new Date().getFullYear()} ChaiBytes by Abhyudaya Dubey.
           </p>
 
           <div className="flex gap-4">

@@ -5,6 +5,7 @@ import CustomCursor from "@/components/shared/CustomCursor";
 import CommandPalette from "@/components/command/CommandPalette";
 import FloatingNav from "@/components/navigation/FloatingNav";
 import HeroSection from "@/components/hero/HeroSection";
+import TrustedClients from "@/components/clients/TrustedClients";
 import AboutSection from "@/components/about/AboutSection";
 import TeamSection from "@/components/team/TeamSection";
 import ExperienceSection from "@/components/experience/ExperienceSection";
@@ -48,6 +49,8 @@ export default function Home() {
 
       {/* Portfolio main sections */}
       <HeroSection />
+
+      <TrustedClients />
 
       <FreelanceSection />
       
