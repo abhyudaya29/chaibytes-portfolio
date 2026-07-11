@@ -52,10 +52,12 @@ const CLIENTS = [
 ];
 
 export default function TrustedClients() {
+  const marqueeItems = [...CLIENTS, ...CLIENTS];
+
   return (
-    <section className="py-20 sm:py-24 border-t border-border-custom relative overflow-hidden bg-bg-base/20 select-none">
+    <section id="partners" className="py-20 sm:py-24 border-t border-border-custom relative overflow-hidden bg-bg-base/10 select-none">
       {/* Ambient glowing circles */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-accent-primary/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-accent-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center justify-center text-center gap-4 mb-16">
@@ -64,74 +66,40 @@ export default function TrustedClients() {
             Trusted Partners
           </h2>
           <p className="text-sm sm:text-base text-text-secondary max-w-xl leading-relaxed font-body">
-            Collaborating with leading innovators, educational systems, and enterprises to craft high-performance products.
+            Enterprise-grade AI systems and product teams that trust Chaibytes to build secure, performant software.
           </p>
         </div>
 
-        {/* Logo cloud grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {CLIENTS.map((client, idx) => {
-            return (
-              <motion.a
-                key={client.name}
+        <div className="relative overflow-hidden rounded-[32px] border border-border-custom/40 bg-bg-card/70 backdrop-blur-xl p-4">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent-primary/10 to-transparent pointer-events-none" />
+          <div className="flex gap-6 min-w-full shrink-0 animate-marquee py-4">
+            {marqueeItems.map((client, idx) => (
+              <a
+                key={`${client.name}-${idx}`}
                 href={client.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: idx * 0.12 }}
-                whileHover={{ 
-                  y: -5,
-                  scale: 1.03,
-                  boxShadow: `0 15px 30px ${client.glowColor}`,
-                  borderColor: client.borderColor
-                }}
-                className="group relative p-7 sm:p-8 rounded-2xl bg-bg-card/45 border border-border-custom/50 backdrop-blur-md transition-all duration-300 flex flex-col justify-between min-h-[250px] overflow-hidden cursor-pointer"
+                className="group relative min-w-[320px] max-w-[320px] p-6 rounded-3xl bg-bg-base/90 border border-border-custom/40 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1 hover:border-accent-primary/40"
               >
-                {/* Micro-interaction glow behind card */}
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: `radial-gradient(circle at center, ${client.glowColor} 0%, transparent 70%)`
-                  }}
-                />
-
-                <div className="flex flex-col items-start text-left gap-5 relative z-10 w-full h-full justify-between">
-                  <div className="space-y-4 w-full">
-                    {/* Top line with Logo and Client details */}
-                    <div className="flex items-center gap-3.5 w-full">
-                      <div className={`w-14 h-14 rounded-xl border transition-colors duration-300 group-hover:border-accent-primary/50 overflow-hidden flex items-center justify-center p-2 shadow-inner shrink-0 ${client.logoBg}`}>
-                        <img 
-                          src={client.logo} 
-                          alt={client.name} 
-                          className="w-full h-full object-contain rounded-lg select-none"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm sm:text-base font-bold font-heading tracking-wide uppercase text-text-primary group-hover:text-accent-primary transition-colors duration-300 leading-tight">
-                          {client.name}
-                        </h3>
-                        <p className="text-[10px] text-accent-primary font-mono tracking-wider uppercase mt-1">
-                          {client.role}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Description Paragraph */}
-                    <p className="text-[12px] text-text-secondary/85 leading-relaxed font-body">
-                      {client.description}
+                <div className="flex items-start gap-3 mb-5">
+                  <div className={`w-14 h-14 rounded-2xl overflow-hidden border border-border-custom/30 flex items-center justify-center p-2 ${client.logoBg}`}>
+                    <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-base font-heading font-bold uppercase tracking-tight text-text-primary group-hover:text-accent-primary transition-colors">
+                      {client.name}
+                    </h3>
+                    <p className="text-[10px] text-accent-primary font-mono tracking-wider uppercase mt-1">
+                      {client.role}
                     </p>
                   </div>
-
-                  {/* External redirect Indicator */}
-                  <span className="text-[10px] font-mono text-text-secondary/40 group-hover:text-accent-primary transition-colors mt-4 flex items-center gap-1 self-start select-none">
-                    Visit Project ↗
-                  </span>
                 </div>
-              </motion.a>
-            );
-          })}
+                <p className="text-xs sm:text-[13px] text-text-secondary leading-relaxed font-body">
+                  {client.description}
+                </p>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -10,6 +10,7 @@ import GlowBorder from "../shared/GlowBorder";
 import HeroTerminal from "./HeroTerminal";
 import HeroOrbit from "./HeroOrbit";
 import FloatingPills from "./FloatingPills";
+import { SparklesText } from "../ui/sparkles-text";
 
 export default function HeroSection() {
   const [titleIdx, setTitleIdx] = useState(0);
@@ -36,7 +37,7 @@ export default function HeroSection() {
     <section
       id="hero"
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center justify-center py-20 px-6 sm:px-12 md:px-24 overflow-hidden bg-bg-base"
+      className="relative min-h-screen flex items-center justify-center pt-[110px] pb-20 px-6 sm:px-12 md:px-24 overflow-hidden bg-bg-base"
     >
       {/* Background Animated Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(232,114,42,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(232,114,42,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none select-none z-0" />
@@ -80,15 +81,17 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Name Header */}
-          <motion.h1
+          <motion.div
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 180 } },
             }}
-            className="text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-text-primary uppercase"
+            className="relative"
           >
-            ChaiBytes
-          </motion.h1>
+            <SparklesText className="text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-text-primary uppercase">
+              ChaiBytes
+            </SparklesText>
+          </motion.div>
 
           {/* Rebrand subtitle */}
           <motion.div

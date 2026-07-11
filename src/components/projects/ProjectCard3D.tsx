@@ -68,7 +68,7 @@ export default function ProjectCard3D({ children, className = "", onClick }: Pro
         <div
           className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-screen"
           style={{
-            background: `radial-gradient(200px circle at ${coords.x}px ${coords.y}px, rgba(200, 67, 10, 0.1), transparent 80%)`,
+            background: `radial-gradient(200px circle at ${coords.x}px ${coords.y}px, var(--color-glow-custom), transparent 80%)`,
           }}
         />
 

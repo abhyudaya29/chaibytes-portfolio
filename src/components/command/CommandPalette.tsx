@@ -53,13 +53,6 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
       action: () => scrollToSection("team"),
     },
     {
-      id: "nav-experience",
-      title: "Go to Experience",
-      category: "Navigation",
-      icon: <Navigation className="w-3.5 h-3.5 text-accent-primary" />,
-      action: () => scrollToSection("experience"),
-    },
-    {
       id: "nav-projects",
       title: "Go to Projects",
       category: "Navigation",
@@ -209,7 +202,7 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="absolute inset-0 bg-[#0c0805]/75 backdrop-blur-[8px]"
+            className="absolute inset-0 bg-slate-950/70 backdrop-blur-[8px]"
           />
 
           {/* Panel Container */}
@@ -218,7 +211,7 @@ export default function CommandPalette({ isOpen, setIsOpen }: CommandPaletteProp
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.97, y: -8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-lg mx-4 overflow-hidden rounded-2xl bg-[#1E150D] border border-border-custom shadow-[0_0_50px_rgba(200,67,10,0.25)] flex flex-col z-10"
+            className="relative w-full max-w-lg mx-4 overflow-hidden rounded-2xl bg-bg-card border border-border-custom shadow-xl flex flex-col z-10"
           >
             {/* Top Border Highlight */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-accent-primary to-transparent" />

@@ -8,17 +8,18 @@
   --font-editorial: var(--font-editorial), serif;
   --font-mono: var(--font-mono), monospace;
 
-  /* Color Palette */
-  --color-bg-base: #140D07;
-  --color-bg-elevated: #1A1208;
-  --color-bg-card: #24160D;
-  --color-accent-primary: #C8430A;
-  --color-accent-hover: #E8722A;
-  --color-accent-deep: #7A2800;
-  --color-text-primary: #FDF6EE;
-  --color-text-secondary: #D8C7B5;
-  --color-border-custom: rgba(232, 114, 42, 0.15);
-  --color-glow-custom: rgba(200, 67, 10, 0.25);
+  /* Color Palette mapping to CSS variables */
+  --color-bg-base: var(--bg-base);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-card: var(--bg-card);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-deep: var(--accent-deep);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-custom: var(--border-custom);
+  --color-glow-custom: var(--glow-custom);
+  --terminal-accent: var(--terminal-accent);
 
   /* Custom Animations */
   --animate-border-beam: border-beam 15s linear infinite;
@@ -74,6 +75,46 @@
       transform: translateX(-50%);
     }
   }
+}
+
+:root {
+  /* Default Dark Mode Values */
+  --bg-base: #140D07;
+  --bg-elevated: #1A1208;
+  --bg-card: #24160D;
+  --accent-primary: #C8430A;
+  --accent-hover: #E8722A;
+  --accent-deep: #7A2800;
+  --text-primary: #FDF6EE;
+  --text-secondary: #D8C7B5;
+  --border-custom: rgba(232, 114, 42, 0.15);
+  --glow-custom: rgba(200, 67, 10, 0.25);
+  --terminal-accent: #27c93f;
+}
+
+.light {
+  /* Light Mode Values matching approved login screen palette */
+  --bg-base: #FDFBFA; /* Warm off-white base */
+  --bg-elevated: #FAECE7; /* Soft peach/cream */
+  --bg-card: #FFFFFF; /* Pure white cards */
+  --accent-primary: #F26E21; /* Burnt orange */
+  --accent-hover: #FF8C42;
+  --accent-deep: #E05B1C;
+  --text-primary: #1F160F; /* Warm dark brown text */
+  --text-secondary: #5C4638;
+  --border-custom: rgba(216, 90, 48, 0.18);
+  --glow-custom: rgba(242, 110, 33, 0.18);
+  --terminal-accent: #F26E21; /* Matches theme accent in light mode */
+}
+
+/* Force dark theme variables on dark panels even in light mode */
+.terminal-dark-panel {
+  --bg-base: #0C0804 !important;
+  --bg-elevated: #140D07 !important;
+  --bg-card: #181009 !important;
+  --text-primary: #FDF6EE !important;
+  --text-secondary: #D8C7B5 !important;
+  --border-custom: rgba(232, 114, 42, 0.12) !important;
 }
 
 /* Custom Base Resets and Styling */

@@ -12,7 +12,7 @@ export default function ShimmerButton({ children, className = "", ...props }: Sh
     <motion.button
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
-      className={`relative overflow-hidden rounded-full bg-accent-primary px-7 py-3 text-sm font-medium text-text-primary border border-accent-hover/30 transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_0_20px_var(--color-glow-custom)] ${className}`}
+      className={`relative overflow-hidden rounded-full bg-accent-primary px-7 py-3 text-sm font-medium text-white border border-accent-hover/30 transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_0_20px_var(--color-glow-custom)] ${className}`}
       {...props}
     >
       {/* Moving Shimmer Overlay */}

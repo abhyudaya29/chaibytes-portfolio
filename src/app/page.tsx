@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import NoiseBg from "@/components/shared/NoiseBg";
 import CustomCursor from "@/components/shared/CustomCursor";
 import CommandPalette from "@/components/command/CommandPalette";
-import FloatingNav from "@/components/navigation/FloatingNav";
+import Header from "@/components/navigation/Header";
 import HeroSection from "@/components/hero/HeroSection";
 import TrustedClients from "@/components/clients/TrustedClients";
 import AboutSection from "@/components/about/AboutSection";
@@ -16,6 +16,7 @@ import MetricsSection from "@/components/metrics/MetricsSection";
 import BlogSection from "@/components/blog/BlogSection";
 import FreelanceSection from "@/components/freelance/FreelanceSection";
 import ContactSection from "@/components/contact/ContactSection";
+import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
 
 export default function Home() {
   const [isCommandOpen, setIsCommandOpen] = useState(false);
@@ -41,16 +42,18 @@ export default function Home() {
       {/* Hardware accelerated physics-based custom cursor */}
       <CustomCursor />
 
-      {/* Raycast-style command menu */}
+      {/* Playbook-style command menu */}
       <CommandPalette isOpen={isCommandOpen} setIsOpen={setIsCommandOpen} />
 
-      {/* Floating pill navigation dock */}
-      <FloatingNav onSearchClick={() => setIsCommandOpen(true)} />
+      {/* Sticky Header Navigation */}
+      <Header onSearchClick={() => setIsCommandOpen(true)} />
 
       {/* Portfolio main sections */}
       <HeroSection />
 
       <TrustedClients />
+
+      <TestimonialsSection />
 
       <FreelanceSection />
       
@@ -60,7 +63,7 @@ export default function Home() {
       
       <AboutSection />
       
-      <ExperienceSection />
+      {/* <ExperienceSection /> */}
       
       <SkillsSection />
       

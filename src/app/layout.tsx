@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { outfit, inter, manrope, instrumentSerif, jetbrainsMono } from "@/lib/fonts";
 import ScrollProvider from "@/components/providers/ScrollProvider";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -57,16 +58,19 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${outfit.variable} ${inter.variable} ${manrope.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-screen bg-bg-base text-text-primary selection:bg-accent-primary selection:text-text-primary antialiased">
+      <body className="min-h-screen bg-bg-base text-text-primary selection:bg-accent-primary selection:text-text-primary antialiased" suppressHydrationWarning>
         <Script
           src="https://cloud.umami.is/script.js"
           data-website-id="ffebc9c7-13ce-408e-8418-c0b8d49fdc45"
           strategy="afterInteractive"
         />
-        <ScrollProvider>
-          {children}
-        </ScrollProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <ScrollProvider>
+            {children}
+          </ScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

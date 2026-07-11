@@ -8,20 +8,20 @@ export default function HeroTerminal() {
   const { displayedLines, currentTyped } = useTypingAnimation(sequence.commands);
 
   return (
-    <div className="w-full rounded-xl overflow-hidden bg-bg-base/70 border border-border-custom/50 shadow-2xl flex flex-col font-mono text-[12px]">
+    <div className="w-full rounded-xl overflow-hidden bg-bg-base/70 border border-border-custom/50 shadow-2xl flex flex-col font-mono text-[12px] terminal-dark-panel">
       {/* Window Header Chrome */}
       <div className="flex items-center justify-between px-4 py-3 bg-[#1D130A] border-b border-border-custom/30">
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[var(--terminal-accent)]" />
         </div>
         <div className="text-[10px] text-text-secondary/50 font-medium tracking-wide">
           {sequence.identity}
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#27c93f] animate-pulse" />
-          <span className="text-[9px] text-[#27c93f] font-semibold tracking-wider uppercase">Live</span>
+          <span className="w-2 h-2 rounded-full bg-[var(--terminal-accent)] animate-pulse" />
+          <span className="text-[9px] text-[var(--terminal-accent)] font-semibold tracking-wider uppercase">Live</span>
         </div>
       </div>
 
@@ -39,7 +39,7 @@ export default function HeroTerminal() {
                 isCommand
                   ? "text-text-primary font-semibold"
                   : isSuccess
-                  ? "text-[#27c93f]"
+                  ? "text-[var(--terminal-accent)]"
                   : isPrompt
                   ? "text-accent-primary/90"
                   : "text-text-secondary/70"

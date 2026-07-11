@@ -27,7 +27,7 @@ export default function GlowBorder({
         }}
       />
       {/* Content Container */}
-      <div className={`relative w-full h-full rounded-[15px] bg-[#1E150D]/90 backdrop-blur-xl overflow-hidden z-10 ${className}`}>
+      <div className={`relative w-full h-full rounded-[15px] bg-bg-card/90 backdrop-blur-xl overflow-hidden z-10 ${className}`}>
         {children}
       </div>
     </div>

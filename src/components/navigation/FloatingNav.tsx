@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, User, Briefcase, Code, Terminal, Mail, Search, BookOpen, Layers, Users } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 interface FloatingNavProps {
   onSearchClick: () => void;
@@ -141,6 +142,12 @@ export default function FloatingNav({ onSearchClick }: FloatingNavProps) {
               );
             })}
           </div>
+
+          {/* Divider line */}
+          <div className="w-[1px] h-6 bg-border-custom self-center mx-1 shrink-0" />
+
+          {/* Theme switcher */}
+          <ThemeToggle />
 
           {/* Divider line */}
           <div className="w-[1px] h-6 bg-border-custom self-center mx-1 shrink-0" />

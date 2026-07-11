@@ -56,7 +56,7 @@ export default function ProjectsSection() {
                 className="block w-full cursor-pointer group/card"
               >
                 <GlowBorder
-                  glowColor="#C8430A"
+                  glowColor="var(--color-accent-primary)"
                   duration={6}
                   containerClassName="rounded-[32px] w-full"
                   className="!p-8 sm:!p-10 !bg-bg-card/25 border border-border-custom/30 group-hover/card:border-accent-primary/40 transition-all duration-500"
