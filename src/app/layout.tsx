@@ -6,8 +6,8 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ChaiBytes — AI Agents, Fullstack SaaS & MVP Product Engineering Studio",
-  description: "Specialized software lab building custom AI agents, scalable SaaS platforms, high-performance web MVPs, and Agentic Search Discoverability (AEO/GEO/SEO) systems.",
+  title: "ChaiBytes | AI Agents & SaaS Product Studio",
+  description: "ChaiBytes builds practical AI agents, voice systems, automation platforms and scalable SaaS products for real business problems.",
   keywords: ["AI software lab", "AI agents development", "SaaS developers", "MVP product engineering", "Agentic search discoverability", "AEO marketing systems", "GEO optimization", "Next.js SaaS development", "ChaiBytes"],
   authors: [{ name: "ChaiBytes", url: "https://www.chaibytes.in" }],
   creator: "ChaiBytes",
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "ChaiBytes — AI Agents, Fullstack SaaS & MVP Product Lab",
-    description: "Specialized software lab building custom AI agents, scalable SaaS platforms, high-performance web MVPs, and Agentic Search Discoverability.",
+    title: "ChaiBytes | AI Agents & SaaS Product Studio",
+    description: "ChaiBytes builds practical AI agents, voice systems, automation platforms and scalable SaaS products for real business problems.",
     url: "https://www.chaibytes.in",
     siteName: "ChaiBytes",
     locale: "en_IN",
