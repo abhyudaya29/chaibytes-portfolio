@@ -77,10 +77,10 @@ export default function HeroSection() {
               visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 200 } },
             }}
           >
-            <SectionLabel label="AI Product Engineer · Building in India" />
+            <SectionLabel label="ChaiBytes — Brewing AI Products for Real Business" />
           </motion.div>
 
-          {/* Name Header */}
+          {/* H1 Heading */}
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 20 },
@@ -88,20 +88,10 @@ export default function HeroSection() {
             }}
             className="relative"
           >
-            <SparklesText className="text-5xl sm:text-6xl md:text-7xl font-bold font-heading tracking-tight text-text-primary uppercase">
-              ChaiBytes
-            </SparklesText>
-          </motion.div>
-
-          {/* Rebrand subtitle */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 10 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="text-xs sm:text-sm font-mono text-text-secondary tracking-widest uppercase -mt-2"
-          >
-            Software Lab
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading tracking-tight text-text-primary uppercase leading-tight">
+              AI Products Built <br className="hidden sm:inline" />
+              for <span className="font-editorial italic text-accent-primary font-normal">Real Business</span>
+            </h1>
           </motion.div>
 
           {/* Rotating Title Carousel */}
@@ -134,7 +124,7 @@ export default function HeroSection() {
             }}
             className="text-[15px] sm:text-base text-text-secondary max-w-lg leading-relaxed font-body"
           >
-            Building intelligent interfaces, highly concurrent backend pipelines, and real-time infrastructure models where systems meet seamless visual design.
+            ChaiBytes is an AI SaaS product studio building practical AI agents, voice systems and automation products for businesses.
           </motion.p>
 
           {/* Call to Actions */}
