@@ -23,15 +23,15 @@ export default function ContactSection() {
             <SectionLabel label="CONTACT & INQUIRIES" />
             
             <div className="text-xs font-mono text-text-secondary/60 tracking-widest uppercase -mt-4">
-              ChaiBytes by Abhyudaya
+              ChaiBytes Software Lab
             </div>
             
             <h2 className="text-4xl sm:text-5xl font-bold font-heading text-text-primary tracking-tight leading-tight max-w-xl">
-              Let&apos;s build the <span className="font-editorial italic text-accent-primary font-normal">next generation</span> of intelligent systems.
+              Let&apos;s build your <span className="font-editorial italic text-accent-primary font-normal">next AI workflow</span>, SaaS, or MVP.
             </h2>
             
             <p className="text-text-secondary text-base sm:text-lg max-w-lg leading-relaxed font-body">
-              Whether you want to collaborate on high-performance systems architecture, talk about AI-native workflows, or recruit for an ambitious role, let&apos;s connect.
+              Whether you need to build custom AI agents, deploy a high-performance full-stack SaaS, launch an MVP, or optimize your search discoverability (AEO/GEO/SEO), let&apos;s connect.
             </p>
             
             {/* Quick Metadata: Location and Time */}
@@ -129,7 +129,7 @@ export default function ContactSection() {
         {/* Footer/Links Row */}
         <div className="mt-20 pt-8 border-t border-border-custom/50 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-xs font-mono text-text-secondary">
-            © {new Date().getFullYear()} ChaiBytes by Abhyudaya Dubey.
+            © {new Date().getFullYear()} ChaiBytes Software Lab. All rights reserved.
           </p>
 
           <div className="flex gap-4">

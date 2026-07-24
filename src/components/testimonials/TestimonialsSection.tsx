@@ -35,13 +35,13 @@ const ROW2_TESTIMONIALS = [
   {
     name: "Sarah Jenkins",
     title: "Lead Developer, TrueSkin",
-    quote: "The clinic portal developed by Abhyudaya has transformed our dermatology diagnostics workflows. Seamless UI design and solid database security features.",
+    quote: "The clinic portal developed by ChaiBytes has transformed our dermatology diagnostics workflows. Seamless UI design and solid database security features.",
     company: "TrueSkin",
   },
   {
     name: "Divyansh Srivastava",
     title: "Co-Founder, VoxReception",
-    quote: "Highly skilled product engineer. Took our complex real-time telecom telephony specs and built a production-ready dashboard interface in record time.",
+    quote: "Highly skilled engineering team. Took our complex real-time telecom telephony specs and built a production-ready dashboard interface in record time.",
     company: "VoxReception",
   },
 ];

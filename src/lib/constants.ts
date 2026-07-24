@@ -10,11 +10,11 @@ export const PERSONAL_INFO = {
 };
 
 export const HERO_TITLES = [
-  "AI Product Engineer",
-  "Systems Builder",
-  "Real-time Infrastructure Engineer",
-  "Full Stack Developer",
-  "Intelligent Interface Designer",
+  "AI & SaaS Product Lab",
+  "Building Scalable MVPs & SaaS",
+  "High-Performance Fullstack Systems",
+  "Agentic Search & SEO Systems (AEO/GEO)",
+  "Real-time Enterprise Infrastructure",
 ];
 
 export const BRAND_PILLARS = [
@@ -33,18 +33,18 @@ export const BRAND_PILLARS = [
 ];
 
 export const ABOUT_CONTENT = {
-  title: "Crafting systems that think.",
+  title: "Engineering products that think.",
   opening:
-    "I started as a frontend developer and moved progressively deeper into backend infrastructure, real-time systems, AI workflows, and product architecture.",
+    "We design and build production-grade AI applications, scalable SaaS systems, high-performance MVPs, and intelligent search infrastructure from the ground up.",
   paragraphs: [
-    "Over time I became obsessed with the intersection of systems and experience — where millisecond-level infrastructure decisions translate into product moments users actually feel.",
-    "I build from 0 → 1. That means owning the full stack: database schema to pixel-perfect UI, deployment pipeline to AI prompt architecture.",
+    "We are obsessed with the intersection of complex backends and refined user experiences — where millisecond-level infrastructure decisions translate into product moments users actually feel.",
+    "We build from 0 → 1. That means owning the entire architecture: database schema to pixel-perfect UI, automated deployment pipeline to agentic RAG prompt routing.",
   ],
   interests: [
+    "Autonomous AI agents & custom LLM systems",
+    "High-performance SaaS MVPs & web apps",
+    "Agentic Search Discoverability (AEO & GEO)",
     "Real-time systems & WebSocket infrastructure",
-    "AI-native product design",
-    "Developer tooling & internal platforms",
-    "Scalable backend architecture",
     "Database internals & query optimization",
   ],
   stats: [
@@ -60,11 +60,11 @@ export const ABOUT_CONTENT = {
     },
     quote: {
       text: "Craftsmanship is not an aesthetic add-on; it is the ultimate measure of engineering integrity.",
-      author: "Abhyudaya Dubey",
+      author: "ChaiBytes",
     },
     availability: {
-      status: "Active & Available",
-      details: "Ready for ambitious systems & product engineering roles.",
+      status: "Accepting Projects",
+      details: "Ready to build custom AI workflows, SaaS platforms, and MVP products.",
     },
   },
 };
@@ -72,11 +72,11 @@ export const ABOUT_CONTENT = {
 export const EXPERIENCE_TIMELINE = [
   {
     years: "2024 - Present",
-    company: "RaySuite AI",
-    role: "Founding Member & SDE",
-    description: "Founding engineer building the all-in-one AI-powered Marketing OS designed as a central AI command layer for brands, D2C businesses, and growth teams.",
+    company: "RaySuite AI (Partnered Product Engineering)",
+    role: "Founding Product Builders",
+    description: "Collaborated as core product engineers building the all-in-one AI-powered Marketing OS designed as a central AI command layer for brands, D2C businesses, and growth teams.",
     bullets: [
-      "RayTarget: Developed the personalization, campaign targeting, and automated UGC/product video generation workflow engines driving brand growth.",
+      "RayTarget: Co-developed the personalization, campaign targeting, and automated UGC/product video generation workflow engines driving brand growth.",
       "RayTalk: Engineered the conversational AI customer support desk, enabling automated, context-aware query resolution at scale.",
       "RayCRM: Architected and integrated the core CRM system for seamless lead tracking, profiling, and analytics consolidation.",
     ],
@@ -84,9 +84,9 @@ export const EXPERIENCE_TIMELINE = [
   },
   {
     years: "2023 - 2024",
-    company: "enerzyAI",
-    role: "Full Stack Developer",
-    description: "Full stack engineering for the AI-native energy infrastructure platform serving as the OS for the energy internet, built in India for global markets.",
+    company: "enerzyAI (SaaS & Infrastructure Dev)",
+    role: "Full Stack Engineering Partner",
+    description: "Delivered full stack engineering for the AI-native energy infrastructure platform serving as the OS for the energy internet, built in India for global markets.",
     bullets: [
       "Connected and orchestrated grid-scale Battery Energy Storage Systems (BESS), solar storage setups, and smart meter configurations.",
       "Engineered secure OTP authentication via MSG91 (WhatsApp + SMS) with robust session state management.",
@@ -96,9 +96,9 @@ export const EXPERIENCE_TIMELINE = [
   },
   {
     years: "2022 - 2023",
-    company: "Nitro Commerce",
-    role: "SDE",
-    description: "Scaled frontend architecture for a high-throughput commerce platform.",
+    company: "Nitro Commerce (Performance Frontend)",
+    role: "Frontend Scaling & Optimization",
+    description: "Scaled frontend architecture and optimized load performance for high-throughput commerce platforms.",
     bullets: [
       "Constructed modular UI component libraries resulting in 40% faster frontend iterations.",
       "Optimized webpack/vite bundling configurations to reduce page load time by 30%.",
@@ -108,9 +108,9 @@ export const EXPERIENCE_TIMELINE = [
   },
   {
     years: "2021 - 2022",
-    company: "Innobit Systems",
-    role: "Frontend Developer",
-    description: "Built responsive interfaces and reusable UI systems within React ecosystems.",
+    company: "Innobit Systems (Responsive UI Systems)",
+    role: "UI/UX Engineering & Reusability",
+    description: "Built responsive client dashboards, portal interfaces, and reusable component libraries within the React ecosystem.",
     bullets: [
       "Delivered pixel-perfect interfaces matching complex dashboard wireframes.",
       "Implemented responsive CSS layouts with strict cross-browser testing and compatibility.",

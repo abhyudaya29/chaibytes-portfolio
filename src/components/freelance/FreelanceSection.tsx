@@ -8,21 +8,21 @@ import { PERSONAL_INFO } from "@/lib/constants";
 
 const SERVICES = [
   {
-    title: "Web development",
-    description: "Full-stack web apps, landing pages, dashboards, and internal tools. Fast delivery, clean code, production-ready.",
+    title: "Full-stack SaaS & MVPs",
+    description: "From zero to a fully functional production-ready SaaS platform or MVP. We handle the entire stack: frontend portals, backend databases, API routes, and cloud hosting.",
     tags: ["Next.js", "React", "FastAPI", "PostgreSQL"],
     icon: Layout,
   },
   {
-    title: "AI automation",
-    description: "Custom AI workflows, chatbots, RAG pipelines, and agent integrations that actually ship and work in production.",
-    tags: ["LangChain", "OpenAI", "Claude", "Agents"],
+    title: "Custom AI Agents",
+    description: "Autonomous agents, RAG indexing pipelines, context routing, and LLM orchestration designed to automate complex operations and business tasks.",
+    tags: ["LangChain", "Vapi", "OpenAI", "Agents"],
     icon: Bot,
   },
   {
-    title: "Ship MVPs & SaaS",
-    description: "Got an idea? I'll take it from zero to a working product. Full-stack, AI-ready, deployed and in users' hands fast.",
-    tags: ["MVP", "SaaS", "0→1", "Full Stack"],
+    title: "Agentic Search & SEO",
+    description: "Optimizing your digital footprint for AI engines, LLM crawlers, search retrieval pipelines, and traditional search engine visibility (AEO, GEO & SEO).",
+    tags: ["AEO / GEO", "SEO", "LLM Ingestion", "Discovery"],
     icon: Rocket,
   },
 ];
@@ -36,12 +36,12 @@ export default function FreelanceSection() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col items-start gap-4 max-w-2xl mb-12">
-          <SectionLabel label="01 / Work with us" />
+          <SectionLabel label="01 / Our Services" />
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
-            Work with us.
+            Our Services.
           </h2>
           <p className="text-sm sm:text-base text-text-secondary leading-relaxed font-body">
-            Available for contract and freelance projects. We work with founders and startups who need to move fast — web apps, AI tools, or a full SaaS shipped from scratch.
+            Custom AI agent solutions, full-stack SaaS systems, MVPs, and intelligent search infrastructure. We work with fast-moving founders and enterprises to ship high-performance software from scratch.
           </p>
 
           {/* Availability bar */}
@@ -50,7 +50,7 @@ export default function FreelanceSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
             </span>
-            <span>Open to freelance work</span>
+            <span>Accepting projects</span>
             <span className="text-border-custom">|</span>
             <span>Typically respond within 24 hours</span>
             <span className="text-border-custom">|</span>

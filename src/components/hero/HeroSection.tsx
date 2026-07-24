@@ -101,7 +101,7 @@ export default function HeroSection() {
             }}
             className="text-xs sm:text-sm font-mono text-text-secondary tracking-widest uppercase -mt-2"
           >
-            by Abhyudaya Dubey
+            Software Lab
           </motion.div>
 
           {/* Rotating Title Carousel */}

@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   }
 
   return {
-    title: `${post.title} — ChaiBytes by Abhyudaya`,
+    title: `${post.title} — ChaiBytes`,
     description: post.description,
     openGraph: {
       title: post.title,
@@ -84,8 +84,8 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
     "datePublished": post.date,
     "url": `https://www.chaibytes.in/blog/${slug}`,
     "author": {
-      "@type": "Person",
-      "name": "ChaiBytes by Abhyudaya",
+      "@type": "Organization",
+      "name": "ChaiBytes",
       "url": "https://www.chaibytes.in"
     }
   };

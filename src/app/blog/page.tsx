@@ -7,18 +7,18 @@ import CustomCursor from "@/components/shared/CustomCursor";
 import { ArrowLeft, Calendar, Clock, ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog — ChaiBytes by Abhyudaya",
-  description: "Read the latest engineering articles on full stack architecture, performance marketing automation, real-time WebSockets, and AI workflows by ChaiBytes by Abhyudaya.",
+  title: "Blog — ChaiBytes",
+  description: "Read the latest engineering articles on full stack architecture, SaaS performance, real-time WebSockets, and AI workflows by ChaiBytes.",
   openGraph: {
-    title: "Blog — ChaiBytes by Abhyudaya",
-    description: "Read the latest engineering articles on full stack architecture, performance marketing automation, real-time WebSockets, and AI workflows by ChaiBytes by Abhyudaya.",
+    title: "Blog — ChaiBytes",
+    description: "Read the latest engineering articles on full stack architecture, SaaS performance, real-time WebSockets, and AI workflows by ChaiBytes.",
     type: "website",
     url: "https://www.chaibytes.in/blog",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — ChaiBytes by Abhyudaya",
-    description: "Read the latest engineering articles on full stack architecture, performance marketing automation, real-time WebSockets, and AI workflows.",
+    title: "Blog — ChaiBytes",
+    description: "Read the latest engineering articles on full stack architecture, SaaS performance, real-time WebSockets, and AI workflows.",
   },
 };
 
@@ -43,15 +43,15 @@ export default async function BlogPage() {
     "@type": "Blog",
     "name": "ChaiBytes Blog",
     "url": "https://www.chaibytes.in/blog",
-    "description": "Read the latest engineering articles on full stack architecture, performance marketing automation, real-time WebSockets, and AI workflows by ChaiBytes by Abhyudaya.",
+    "description": "Read the latest engineering articles on full stack architecture, SaaS performance, real-time WebSockets, and AI workflows by ChaiBytes.",
     "publisher": {
-      "@type": "Person",
-      "name": "ChaiBytes by Abhyudaya",
+      "@type": "Organization",
+      "name": "ChaiBytes",
       "url": "https://www.chaibytes.in"
     },
     "author": {
-      "@type": "Person",
-      "name": "ChaiBytes by Abhyudaya"
+      "@type": "Organization",
+      "name": "ChaiBytes"
     }
   };
 

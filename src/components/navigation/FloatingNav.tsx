@@ -11,11 +11,10 @@ interface FloatingNavProps {
 
 const NAV_ITEMS = [
   { label: "Home", href: "#hero", icon: Home },
-  { label: "Freelance", href: "#freelance", icon: Layers },
+  { label: "Services", href: "#freelance", icon: Layers },
   { label: "Products", href: "#projects", icon: Code },
   { label: "Team", href: "#team", icon: Users },
   { label: "About", href: "#about", icon: User },
-  { label: "Experience", href: "#experience", icon: Briefcase },
   { label: "Skills", href: "#skills", icon: Terminal },
   { label: "Blog", href: "/blog", icon: BookOpen },
   { label: "Contact", href: "#contact", icon: Mail },
