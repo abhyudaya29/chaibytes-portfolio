@@ -1,15 +1,15 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Cpu, Layers, Bot, Activity } from "lucide-react";
+import { Github, Linkedin, Cpu, Layers, Bot, Activity, ArrowUpRight } from "lucide-react";
 import SectionLabel from "../shared/SectionLabel";
 
 const TEAM_MEMBERS = [
   {
     name: "Abhyudaya Dubey",
-    role: "AI Product Engineer",
+    role: "Founder & Lead Architect",
     image: "/abhyudaya.png",
-    bio: "Founder of ChaiBytes. Specializes in building complete, easy-to-use digital systems from scratch that can easily scale to support millions of users.",
+    bio: "Product engineer specializing in complete AI-native software architectures, full-stack SaaS pipelines, and high-concurrency systems that scale reliably.",
     location: "Delhi, India",
     socials: {
       github: "https://github.com/abhyudaya29",
@@ -19,9 +19,9 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Pradeep Yadav",
-    role: "Software Engineer & Partner",
+    role: "Core Systems Engineer & Partner",
     image: "/pradeep.png",
-    bio: "Software Engineer with over 4 years of experience building scalable applications, admin portals, and compliance tools at RAYSUITE.AI.",
+    bio: "Senior software engineer with 4+ years architecting enterprise applications, compliance pipelines, and high-throughput marketing OS portals at RaySuite.",
     location: "Delhi, India",
     socials: {
       github: "https://github.com",
@@ -31,9 +31,9 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Pratham Sharma",
-    role: "AI Engineer & Partner",
+    role: "AI & Voice Agent Engineer",
     image: "/pratham.png",
-    bio: "Specializes in autonomous agents, voice assistants, and operations automation pipelines that replace manual repetitive workflows.",
+    bio: "Specializes in autonomous agentic loops, low-latency telephony bots (Vaidya), and real-time business automation systems that eliminate manual overhead.",
     location: "Delhi, India",
     socials: {
       github: "https://github.com",
@@ -43,9 +43,9 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Divyansh Srivastava",
-    role: "Software Engineer & Partner",
+    role: "Healthcare AI & Backend Partner",
     image: "/divyansh.jpg",
-    bio: "Specializes in building AI-powered healthcare platforms, real-time medical software, and scalable backend systems for connected healthcare solutions.",
+    bio: "Specializes in connected medical diagnostics platforms (TrueSkin), HIPAA-grade telemetry architectures, and real-time clinical pre-screening engines.",
     location: "Delhi, India",
     socials: {
       github: "https://github.com/divyaannsh",
@@ -65,12 +65,13 @@ export default function TeamSection() {
         
         {/* Section Header */}
         <div className="flex flex-col items-start gap-4 max-w-2xl mb-16">
-          <SectionLabel label="03 / Engineering Team" />
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase">
-            Core Team
+          <SectionLabel label="03 / Studio Leadership" />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase leading-tight">
+            The Builders Behind <br />
+            <span className="font-editorial italic text-accent-primary font-normal lowercase">ChaiBytes.</span>
           </h2>
-          <p className="text-sm sm:text-base text-text-secondary leading-relaxed font-body">
-            The creators, strategists, and makers who move our mission forward, combining design, code, and vision to achieve remarkable results.
+          <p className="text-base sm:text-lg text-text-secondary leading-relaxed font-body">
+            A tight-knit engineering team combining systems architecture, AI telephony, full-stack SaaS engineering, and computer vision to deliver tangible client impact.
           </p>
         </div>
 
@@ -84,55 +85,54 @@ export default function TeamSection() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group p-4 rounded-[32px] bg-bg-card/30 border border-border-custom/40 hover:border-accent-primary/20 hover:shadow-[0_0_50px_rgba(200,67,10,0.02)] transition-all duration-300 flex flex-col justify-between h-full"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group p-5 rounded-3xl bg-bg-card border border-border-custom hover:border-accent-primary/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full"
               >
-                {/* Top Part */}
                 <div className="flex flex-col w-full">
-                  {/* Full-width Profile Photo */}
-                  <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-bg-base border border-border-custom/20">
+                  {/* Photo container */}
+                  <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-bg-elevated border border-border-custom">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
                     />
                   </div>
 
-                  {/* Name and Role */}
+                  {/* Header info */}
                   <div className="mt-5 flex flex-col">
-                    <h3 className="text-base sm:text-lg font-heading font-bold text-text-primary uppercase tracking-tight group-hover:text-accent-primary transition-colors duration-300">
+                    <h3 className="text-lg font-heading font-bold text-text-primary uppercase tracking-tight group-hover:text-accent-primary transition-colors duration-200">
                       {member.name}
                     </h3>
-                    <div className="flex items-center gap-1.5 mt-1 text-text-secondary/70">
-                      <IconComponent className="w-3.5 h-3.5 shrink-0 text-accent-primary/70" />
-                      <span className="font-mono text-[9px] tracking-wider uppercase">
+                    <div className="flex items-center gap-1.5 mt-1 text-accent-primary">
+                      <IconComponent className="w-3.5 h-3.5 shrink-0" />
+                      <span className="font-mono text-[10px] tracking-wider uppercase font-semibold">
                         {member.role}
                       </span>
                     </div>
                   </div>
 
-                  {/* Dashed Divider */}
-                  <div className="w-full border-t border-dashed border-border-custom/30 my-4" />
+                  {/* Divider */}
+                  <div className="w-full border-t border-dashed border-border-custom/50 my-4" />
 
-                  {/* Description Bio */}
-                  <p className="text-[13px] text-text-secondary/85 leading-relaxed font-body flex-1">
+                  {/* Bio */}
+                  <p className="text-xs text-text-secondary leading-relaxed font-body flex-1">
                     {member.bio}
                   </p>
                 </div>
 
-                {/* Footer Info */}
-                <div className="flex items-center justify-between mt-6 pt-4 border-t border-border-custom/10 w-full">
-                  <span className="text-[10px] font-mono text-text-secondary/40 select-none">
+                {/* Social Footer */}
+                <div className="mt-5 pt-3 border-t border-border-custom/40 flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-text-secondary">
                     {member.location}
                   </span>
-                  <div className="flex gap-2">
+                  <div className="flex items-center gap-2">
                     {member.socials.github && (
                       <a
                         href={member.socials.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-1.5 rounded-lg bg-bg-base/60 border border-border-custom/40 text-text-secondary/50 hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300"
-                        aria-label="GitHub Profile"
+                        className="p-1.5 rounded-full bg-bg-elevated hover:bg-accent-primary text-text-secondary hover:text-white transition-colors"
+                        aria-label="GitHub"
                       >
                         <Github className="w-3.5 h-3.5" />
                       </a>
@@ -142,8 +142,8 @@ export default function TeamSection() {
                         href={member.socials.linkedin}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-1.5 rounded-lg bg-bg-base/60 border border-border-custom/40 text-text-secondary/50 hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300"
-                        aria-label="LinkedIn Profile"
+                        className="p-1.5 rounded-full bg-bg-elevated hover:bg-accent-primary text-text-secondary hover:text-white transition-colors"
+                        aria-label="LinkedIn"
                       >
                         <Linkedin className="w-3.5 h-3.5" />
                       </a>

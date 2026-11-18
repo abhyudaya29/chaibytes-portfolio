@@ -15,8 +15,10 @@ const NAV_ITEMS = [
   { label: "Services", href: "#services" },
   { label: "Products", href: "#projects" },
   { label: "Workflow", href: "#workflow" },
+  { label: "Track Record", href: "#experience" },
   { label: "Reviews", href: "#testimonials" },
   { label: "About", href: "#about" },
+  { label: "Team", href: "#team" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "#contact" },
 ];
@@ -54,7 +56,7 @@ export default function Header({ onSearchClick }: HeaderProps) {
   return (
     <header className="fixed top-4 left-0 right-0 z-50 w-full px-4 sm:px-6 select-none pointer-events-none">
       <div
-        className={`max-w-6xl mx-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border flex items-center justify-between transition-all duration-300 pointer-events-auto ${
+        className={`max-w-7xl mx-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border flex items-center justify-between transition-all duration-300 pointer-events-auto ${
           scrolled
             ? "bg-bg-card/90 backdrop-blur-md border-border-custom shadow-lg"
             : "bg-bg-card/60 backdrop-blur-sm border-border-custom/50 shadow-sm"
@@ -84,7 +86,7 @@ export default function Header({ onSearchClick }: HeaderProps) {
         </a>
 
         {/* Center: Desktop Navigation links */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden xl:flex items-center gap-0.5">
           {NAV_ITEMS.map((item) => {
             const isLinkActive = item.href.startsWith("#")
               ? activeSection === item.href.slice(1)
@@ -94,7 +96,7 @@ export default function Header({ onSearchClick }: HeaderProps) {
               <a
                 key={item.label}
                 href={item.href}
-                className={`relative px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase transition-colors duration-200 ${
+                className={`relative px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide uppercase transition-colors duration-200 ${
                   isLinkActive
                     ? "text-accent-primary font-bold"
                     : "text-text-secondary hover:text-text-primary"
@@ -144,7 +146,7 @@ export default function Header({ onSearchClick }: HeaderProps) {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile navigation menu"
-            className="lg:hidden p-2 rounded-full bg-bg-elevated border border-border-custom text-text-secondary hover:text-text-primary focus:outline-none"
+            className="xl:hidden p-2 rounded-full bg-bg-elevated border border-border-custom text-text-secondary hover:text-text-primary focus:outline-none"
           >
             {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -159,9 +161,9 @@ export default function Header({ onSearchClick }: HeaderProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden mt-3 max-w-sm mx-auto p-4 rounded-3xl bg-bg-card border border-border-custom shadow-2xl backdrop-blur-xl pointer-events-auto"
+            className="xl:hidden mt-3 max-w-sm mx-auto p-4 rounded-3xl bg-bg-card border border-border-custom shadow-2xl backdrop-blur-xl pointer-events-auto"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1.5 max-h-[75vh] overflow-y-auto">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.label}

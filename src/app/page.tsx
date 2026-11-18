@@ -9,6 +9,7 @@ import HeroSection from "@/components/hero/HeroSection";
 import TrustedClients from "@/components/clients/TrustedClients";
 import AboutSection from "@/components/about/AboutSection";
 import TeamSection from "@/components/team/TeamSection";
+import ExperienceSection from "@/components/experience/ExperienceSection";
 import ProjectsSection from "@/components/projects/ProjectsSection";
 import SkillsSection from "@/components/skills/SkillsSection";
 import AITerminalSection from "@/components/terminal/AITerminalSection";
@@ -60,31 +61,34 @@ export default function Home() {
       {/* 3. Core Services with Aceternity Card Hover Effect */}
       <FreelanceSection />
       
-      {/* 4. Products Portfolio (TrueSkin, Vaidya, RayTalk, etc.) */}
+      {/* 4. Products Portfolio (TrueSkin, Vaidya, RayTalk, RayTarget) */}
       <ProjectsSection />
 
       {/* 5. Drag-and-drop Visual Workflow Pipeline Canvas */}
       <AITerminalSection />
 
-      {/* 6. Testimonial Marquees */}
+      {/* 6. Documented Delivery Track Record with Aceternity Timeline */}
+      <ExperienceSection />
+
+      {/* 7. Client Testimonial Marquees */}
       <TestimonialsSection />
 
-      {/* 7. Team & Leadership */}
+      {/* 8. Studio Leadership & Engineering Team */}
       <TeamSection />
       
-      {/* 8. Studio Story & Philosophy */}
+      {/* 9. Studio Story, Philosophy & Matrix */}
       <AboutSection />
       
-      {/* 9. Technology Stack Vector */}
+      {/* 10. Technology Stack Vector */}
       <SkillsSection />
       
-      {/* 10. Performance Metrics & Benchmarks */}
+      {/* 11. Performance Metrics & Benchmarks */}
       <MetricsSection />
 
-      {/* 11. Engineering Blog & Case Studies */}
+      {/* 12. Engineering Blog & Case Studies */}
       <BlogSection />
       
-      {/* 12. Contact & Callout with Aceternity Lamp Container */}
+      {/* 13. Contact & Callout with Aceternity Lamp Container */}
       <ContactSection />
 
     </div>
