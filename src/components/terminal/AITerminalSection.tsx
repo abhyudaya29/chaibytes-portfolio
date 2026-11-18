@@ -251,7 +251,7 @@ export default function AITerminalSection() {
   };
 
   return (
-    <section id="skills" className="relative min-h-screen py-24 px-6 sm:px-12 md:px-24 bg-bg-base overflow-hidden">
+    <section id="workflow" className="relative min-h-screen py-24 px-6 sm:px-12 md:px-24 bg-bg-base overflow-hidden">
       <AmbientOrb className="top-1/4 left-1/4 bg-accent-primary/5" duration={18} />
 
       <div className="relative max-w-4xl mx-auto z-10 flex flex-col gap-12">

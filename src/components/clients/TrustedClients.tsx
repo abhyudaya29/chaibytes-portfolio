@@ -1,155 +1,181 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Handshake, CheckCircle2, ShieldCheck, Sparkles, Building2 } from "lucide-react";
 import SectionLabel from "../shared/SectionLabel";
 
+// Strategic Partners List
 const PARTNERS = [
   {
     name: "SaptTech Labs",
-    role: "Custom Software & Digital Solutions",
-    description: "Collaborated on CRM, SaaS development, business automation, and cloud infrastructure optimization across GCC, India, UAE, UK, and US client bases.",
-    logo: "/sapttech_logo.png",
-    glowColor: "rgba(234, 179, 8, 0.25)",
-    borderColor: "rgba(234, 179, 8, 0.2)",
-    accentText: "text-yellow-500",
-    url: "https://sapttechlabs.com/",
-    logoBg: "bg-slate-950/60 border-white/5"
+    fullName: "SaptTech Labs LLP",
+    role: "Strategic Technology Partner",
+    badge: "Enterprise & Cloud AI",
+    tagline: "Custom software, SaaS, CRM & Cloud infrastructure across UAE, GCC, UK, US & India.",
+    url: "https://sapttechlabs.com",
+    hasCustomBadge: true,
   },
   {
     name: "Arahasoft",
-    role: "Enterprise ERP Solutions",
-    description: "Designed robust API architectures and cloud systems migrating legacy business management pipelines into high-availability microservices.",
-    logo: "/arahasoft_logo.png",
-    glowColor: "rgba(168, 85, 247, 0.25)",
-    borderColor: "rgba(168, 85, 247, 0.2)",
-    accentText: "text-purple-500",
-    url: "https://arahasoft.in/",
-    logoBg: "bg-white border-white/10"
-  }
+    fullName: "Arahasoft Technologies",
+    role: "Strategic Engineering Partner",
+    badge: "Enterprise Systems",
+    tagline: "High-scale enterprise software modernization, cloud migration & core backend systems.",
+    url: "https://arahasoft.com",
+    initials: "AS",
+  },
 ];
 
+// Trusted Clients List
 const CLIENTS = [
   {
+    name: "FlowNext AI",
+    category: "AI Marketing Automation",
+    impact: "Omnichannel real-time leads & WhatsApp autonomous flows",
+    initials: "FN",
+  },
+  {
     name: "Mind Magnificence",
-    role: "Mental Wellness & Therapy",
-    description: "Engineered a custom, secure mental health platform featuring automated session scheduling, therapist directories, and patient progress tracking.",
-    logo: "/mindmagnificence_logo.png",
-    glowColor: "rgba(232, 114, 42, 0.25)",
-    borderColor: "rgba(232, 114, 42, 0.2)",
-    accentText: "text-accent-primary",
-    url: "https://www.mindmagnificence.com/",
-    logoBg: "bg-slate-950/60 border-white/5"
+    category: "EdTech & Performance Coaching",
+    impact: "Interactive diagnostic workflows & student evaluation engines",
+    initials: "MM",
   },
   {
     name: "BasicGuru Classes",
-    role: "Online Classroom Systems",
-    description: "Built a scalable educational class portal supporting live stream coordination, student attendance metrics, and parent portal authorization panels.",
-    logo: "/basicguru_logo.png",
-    glowColor: "rgba(59, 130, 246, 0.25)",
-    borderColor: "rgba(59, 130, 246, 0.2)",
-    accentText: "text-blue-500",
-    url: "https://basicguruclasses.in/",
-    logoBg: "bg-white border-white/10"
+    category: "Digital Education Platform",
+    impact: "High-concurrency test evaluation & live analytics portal",
+    initials: "BG",
   },
-  {
-    name: "FlowNext AI",
-    role: "AI Creative Suite",
-    description: "Partnered to architect a creative automation tool that converts product images into high-converting visual advertisements and video creatives in seconds.",
-    logo: "/flownext_logo.png",
-    glowColor: "rgba(34, 197, 94, 0.25)",
-    borderColor: "rgba(34, 197, 94, 0.2)",
-    accentText: "text-green-500",
-    url: "https://flownextai.in/",
-    logoBg: "bg-slate-950/60 border-white/5"
-  }
 ];
 
 export default function TrustedClients() {
   return (
-    <section id="partners" className="py-20 sm:py-24 border-t border-border-custom relative overflow-hidden bg-bg-base/10 select-none">
-      {/* Ambient glowing circles */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-accent-primary/10 blur-[120px] rounded-full pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-20">
+    <section id="partners" className="py-20 border-y border-border-custom relative overflow-hidden bg-bg-base/40">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-16">
         
-        {/* Strategic Partners Group */}
-        <div className="space-y-10">
-          <div className="flex flex-col items-center justify-center text-center gap-4">
-            <SectionLabel label="01.5 / Partners" />
-            <h2 className="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-text-primary uppercase">
-              Strategic Partners
-            </h2>
-            <p className="text-sm sm:text-base text-text-secondary max-w-xl leading-relaxed font-body">
-              Collaborative technology organizations and agencies we partner with to deliver scalable engineering solutions.
+        {/* ================= PART 1: STRATEGIC PARTNERS ================= */}
+        <div className="space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-xs font-mono text-accent-primary">
+                <Handshake className="w-3.5 h-3.5" />
+                <span>Strategic Alliances</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold font-heading uppercase text-text-primary tracking-tight">
+                Strategic <span className="font-editorial italic text-accent-primary font-normal lowercase">Partners.</span>
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-text-secondary max-w-md font-body">
+              Co-developing enterprise software, cloud automation pipelines, and scalable AI infrastructure alongside industry leaders.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {PARTNERS.map((partner) => (
-              <a
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {PARTNERS.map((partner, index) => (
+              <motion.div
                 key={partner.name}
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative p-6 rounded-3xl bg-bg-card border border-border-custom/40 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1 hover:border-accent-primary/45"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="group p-6 sm:p-7 rounded-3xl bg-bg-card border border-border-custom hover:border-accent-primary/40 transition-all duration-300 shadow-sm flex flex-col justify-between"
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-14 h-14 rounded-2xl overflow-hidden border border-border-custom/30 flex items-center justify-center p-2 shrink-0 ${partner.logoBg}`}>
-                    <img src={partner.logo} alt={partner.name} className="w-full h-full object-contain" />
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      {partner.hasCustomBadge ? (
+                        <div className="w-12 h-12 rounded-2xl bg-bg-elevated border border-border-custom p-1.5 flex items-center justify-center shadow-sm">
+                          <Image
+                            src="/partners/sapttech-logo.png"
+                            alt="SaptTech Labs"
+                            width={42}
+                            height={42}
+                            className="object-contain w-full h-full"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-12 h-12 rounded-2xl bg-bg-elevated border border-border-custom flex items-center justify-center font-heading font-black text-accent-primary text-base shadow-sm">
+                          {partner.initials}
+                        </div>
+                      )}
+                      <div>
+                        <div className="font-heading font-bold text-lg text-text-primary flex items-center gap-2">
+                          <span>{partner.name}</span>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-primary">
+                            {partner.badge}
+                          </span>
+                        </div>
+                        <div className="text-xs font-mono text-text-secondary">
+                          {partner.role}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <h3 className="text-base font-heading font-bold uppercase tracking-tight text-text-primary group-hover:text-accent-primary transition-colors">
-                      {partner.name}
-                    </h3>
-                    <p className={`text-[10px] ${partner.accentText} font-mono tracking-wider uppercase mt-1`}>
-                      {partner.role}
-                    </p>
-                  </div>
+
+                  <p className="text-sm text-text-secondary font-body leading-relaxed">
+                    {partner.tagline}
+                  </p>
                 </div>
-                <p className="text-xs sm:text-[13px] text-text-secondary leading-relaxed font-body">
-                  {partner.description}
-                </p>
-              </a>
+
+                <div className="mt-6 pt-4 border-t border-border-custom/50 flex items-center justify-between text-xs font-mono">
+                  <span className="text-accent-primary font-semibold flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4" />
+                    Verified Partnership
+                  </span>
+                  <a
+                    href={partner.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-text-secondary hover:text-accent-primary transition-colors flex items-center gap-1"
+                  >
+                    <span>Visit Website</span>
+                    <span>↗</span>
+                  </a>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Trusted Clients Group */}
-        <div className="space-y-10">
-          <div className="flex flex-col items-center justify-center text-center gap-4">
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading tracking-tight text-text-primary uppercase">
-              Trusted Clients
-            </h2>
-            <p className="text-sm sm:text-base text-text-secondary max-w-xl leading-relaxed font-body">
-              Startups and businesses that partner with us to transform their product vision into production-ready platforms.
-            </p>
+        {/* ================= PART 2: TRUSTED CLIENTS ================= */}
+        <div className="space-y-6 pt-4 border-t border-border-custom/40">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono text-text-secondary tracking-widest uppercase">
+              Trusted by Ambitious Startups &amp; Organizations
+            </span>
+            <span className="text-xs font-mono text-accent-primary">
+              100% On-Time Delivery
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {CLIENTS.map((client) => (
-              <a
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {CLIENTS.map((client, index) => (
+              <motion.div
                 key={client.name}
-                href={client.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative p-6 rounded-3xl bg-bg-card border border-border-custom/40 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1 hover:border-accent-primary/45"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.08 }}
+                className="p-5 rounded-2xl bg-bg-card/70 border border-border-custom hover:border-accent-primary/30 transition-all duration-200 shadow-sm space-y-2"
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-14 h-14 rounded-2xl overflow-hidden border border-border-custom/30 flex items-center justify-center p-2 shrink-0 ${client.logoBg}`}>
-                    <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-bg-elevated border border-border-custom flex items-center justify-center font-mono font-bold text-xs text-accent-primary">
+                    {client.initials}
                   </div>
-                  <div className="min-w-0">
-                    <h3 className="text-base font-heading font-bold uppercase tracking-tight text-text-primary group-hover:text-accent-primary transition-colors">
+                  <div>
+                    <h4 className="font-heading font-bold text-sm text-text-primary">
                       {client.name}
-                    </h3>
-                    <p className={`text-[10px] ${client.accentText} font-mono tracking-wider uppercase mt-1`}>
-                      {client.role}
+                    </h4>
+                    <p className="text-[10px] font-mono text-text-secondary">
+                      {client.category}
                     </p>
                   </div>
                 </div>
-                <p className="text-xs sm:text-[13px] text-text-secondary leading-relaxed font-body">
-                  {client.description}
+                <p className="text-xs text-text-secondary font-body pt-1 leading-relaxed">
+                  {client.impact}
                 </p>
-              </a>
+              </motion.div>
             ))}
           </div>
         </div>

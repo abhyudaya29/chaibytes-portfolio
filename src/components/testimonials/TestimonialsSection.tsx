@@ -1,27 +1,29 @@
 "use client";
-
 import React from "react";
-import { Quote } from "lucide-react";
+import { Quote, Star, Sparkles, Building2, CheckCircle2 } from "lucide-react";
 import SectionLabel from "../shared/SectionLabel";
 
 const ROW1_TESTIMONIALS = [
   {
     name: "Riya Sharma",
     title: "Founder, Mind Magnificence",
-    quote: "Chaibytes turned a complex product vision into a polished, reliable AI system with exceptional speed and precision. The team’s commitment to detail is unmatched.",
+    quote: "ChaiBytes turned a complex product vision into a polished, reliable AI diagnostic system with exceptional speed and precision. Their commitment to engineering detail is unmatched.",
     company: "Mind Magnificence",
+    rating: 5,
   },
   {
     name: "Aakash Patel",
     title: "CTO, FlowNext AI",
-    quote: "From architecture design to deployment, Chaibytes delivered a future-ready solution that exceeded our performance goals. Their AI and real-time expertise is a major force multiplier.",
+    quote: "From architecture design to deployment, ChaiBytes delivered an AI marketing flow that exceeded our latency benchmarks. Their real-time WebSocket and telephony expertise is world-class.",
     company: "FlowNext AI",
+    rating: 5,
   },
   {
     name: "Sneha Gupta",
     title: "Product Head, BasicGuru Classes",
-    quote: "Working with ChaiBytes has been transformative — every release feels more refined, more scalable, and more delightful for our users. Their engineering rigor is impressive.",
+    quote: "Working with ChaiBytes has been transformative — every release feels more refined, scalable, and intuitive for thousands of live test-takers simultaneously.",
     company: "BasicGuru Classes",
+    rating: 5,
   },
 ];
 
@@ -29,129 +31,105 @@ const ROW2_TESTIMONIALS = [
   {
     name: "Amit Verma",
     title: "Founder, Arahasoft",
-    quote: "ChaiBytes migrated our legacy enterprise pipeline into a scalable, high-availability microservice cluster. Outstanding backend design and database architecture.",
+    quote: "ChaiBytes migrated our legacy enterprise pipeline into a high-availability microservice cluster. Outstanding backend database design and cloud infrastructure execution.",
     company: "Arahasoft",
+    rating: 5,
   },
   {
     name: "Sarah Jenkins",
     title: "Lead Developer, TrueSkin",
-    quote: "The clinic portal developed by ChaiBytes has transformed our dermatology diagnostics workflows. Seamless UI design and solid database security features.",
+    quote: "The clinic portal engineered by ChaiBytes transformed our dermatology diagnostic workflows. Seamless UI design, HIPAA-grade security, and instant EHR lookup.",
     company: "TrueSkin",
+    rating: 5,
   },
   {
     name: "Divyansh Srivastava",
     title: "Co-Founder, VoxReception",
-    quote: "Highly skilled engineering team. Took our complex real-time telecom telephony specs and built a production-ready dashboard interface in record time.",
+    quote: "Highly skilled product engineering team. They took complex telephony specs and built a production-ready conversational voice dashboard in record time.",
     company: "VoxReception",
+    rating: 5,
   },
 ];
 
-// Helper to double items for infinite scroll alignment
 const row1Items = [...ROW1_TESTIMONIALS, ...ROW1_TESTIMONIALS, ...ROW1_TESTIMONIALS];
 const row2Items = [...ROW2_TESTIMONIALS, ...ROW2_TESTIMONIALS, ...ROW2_TESTIMONIALS];
 
+function TestimonialCard({ item }: { item: typeof ROW1_TESTIMONIALS[0] }) {
+  return (
+    <div className="w-[340px] sm:w-[400px] shrink-0 p-6 rounded-3xl bg-bg-card border border-border-custom hover:border-accent-primary/40 transition-all duration-300 shadow-sm flex flex-col justify-between select-none">
+      <div className="space-y-4">
+        {/* Rating & Quote Icon */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1 text-amber-500">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="w-3.5 h-3.5 fill-current" />
+            ))}
+          </div>
+          <Quote className="w-4 h-4 text-accent-primary opacity-60" />
+        </div>
+
+        {/* Testimonial Quote */}
+        <p className="text-sm font-body text-text-primary/90 leading-relaxed italic">
+          &ldquo;{item.quote}&rdquo;
+        </p>
+      </div>
+
+      {/* Author Footer */}
+      <div className="mt-6 pt-4 border-t border-border-custom/50 flex items-center justify-between">
+        <div>
+          <div className="font-heading font-bold text-sm text-text-primary">
+            {item.name}
+          </div>
+          <div className="text-[11px] font-mono text-text-secondary">
+            {item.title}
+          </div>
+        </div>
+        <div className="px-2.5 py-1 rounded-full bg-bg-elevated border border-border-custom text-[10px] font-mono font-semibold text-accent-primary">
+          {item.company}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="relative py-24 bg-bg-base border-t border-border-custom/20 overflow-hidden select-none">
-      {/* Background Orbs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-accent-primary/5 blur-[130px] rounded-full pointer-events-none" />
+    <section id="testimonials" className="py-24 border-t border-border-custom relative overflow-hidden bg-bg-base/20">
+      
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-accent-primary/5 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
-        {/* Section Header matching Dribbble style */}
-        <div className="flex flex-col items-center gap-4 text-center mb-16">
-          <SectionLabel label="01.8 / Feedback" />
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase max-w-2xl leading-tight">
-            Words of praise from others about our presence.
-          </h2>
-          <p className="text-sm sm:text-base text-text-secondary max-w-lg leading-relaxed font-body">
-            Trusted feedback from founders, product leaders, and engineering teams who partnered with us.
-          </p>
-        </div>
-
-        {/* Dual Marquee Track Wrapper */}
-        <div className="flex flex-col gap-6 w-full overflow-hidden">
-          
-          {/* Row 1: Left to Right Marquee */}
-          <div className="flex w-full overflow-hidden relative">
-            {/* Fade overlays for soft side boundaries */}
-            <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-bg-base to-transparent z-20 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-bg-base to-transparent z-20 pointer-events-none" />
-            
-            <div className="flex gap-6 animate-marquee whitespace-nowrap min-w-full">
-              {row1Items.map((item, idx) => (
-                <div
-                  key={`row1-${idx}`}
-                  className="w-[300px] sm:w-[360px] shrink-0 inline-flex flex-col justify-between p-6 sm:p-7 rounded-2xl border border-border-custom/40 bg-bg-card/45 backdrop-blur-md hover:border-accent-primary/45 transition-all duration-300 shadow-sm whitespace-normal relative overflow-hidden group"
-                >
-                  <div className="space-y-4">
-                    {/* Quotes Icon */}
-                    <Quote className="w-8 h-8 text-accent-primary/20 group-hover:text-accent-primary/40 transition-colors shrink-0" />
-                    
-                    {/* Quote Text */}
-                    <p className="text-[13px] sm:text-[14px] text-text-secondary/85 leading-relaxed font-body">
-                      {item.quote}
-                    </p>
-                  </div>
-
-                  {/* Profile Dock */}
-                  <div className="flex items-center gap-3 border-t border-border-custom/10 pt-4 mt-5">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-primary/10 text-accent-primary font-bold text-xs uppercase tracking-wider select-none">
-                      {item.name.split(" ").map(n => n[0]).join("")}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-bold text-text-primary leading-tight truncate">{item.name}</p>
-                      <p className="text-[9px] text-accent-primary/80 font-mono tracking-wider truncate mt-0.5">
-                        {item.title}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 2: Right to Left Marquee */}
-          <div className="flex w-full overflow-hidden relative mt-1">
-            <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-bg-base to-transparent z-20 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-bg-base to-transparent z-20 pointer-events-none" />
-            
-            <div className="flex gap-6 animate-marquee whitespace-nowrap min-w-full [animation-direction:reverse]">
-              {row2Items.map((item, idx) => (
-                <div
-                  key={`row2-${idx}`}
-                  className="w-[300px] sm:w-[360px] shrink-0 inline-flex flex-col justify-between p-6 sm:p-7 rounded-2xl border border-border-custom/40 bg-bg-card/45 backdrop-blur-md hover:border-accent-primary/45 transition-all duration-300 shadow-sm whitespace-normal relative overflow-hidden group"
-                >
-                  <div className="space-y-4">
-                    {/* Quotes Icon */}
-                    <Quote className="w-8 h-8 text-accent-primary/20 group-hover:text-accent-primary/40 transition-colors shrink-0" />
-                    
-                    {/* Quote Text */}
-                    <p className="text-[13px] sm:text-[14px] text-text-secondary/85 leading-relaxed font-body">
-                      {item.quote}
-                    </p>
-                  </div>
-
-                  {/* Profile Dock */}
-                  <div className="flex items-center gap-3 border-t border-border-custom/10 pt-4 mt-5">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-primary/10 text-accent-primary font-bold text-xs uppercase tracking-wider select-none">
-                      {item.name.split(" ").map(n => n[0]).join("")}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-bold text-text-primary leading-tight truncate">{item.name}</p>
-                      <p className="text-[9px] text-accent-primary/80 font-mono tracking-wider truncate mt-0.5">
-                        {item.title}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-
+      <div className="max-w-7xl mx-auto px-6 mb-12 relative z-10 flex flex-col items-center text-center">
+        <SectionLabel label="02 / Client Stories" />
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-text-primary uppercase mt-3">
+          Trusted By <span className="font-editorial italic text-accent-primary font-normal lowercase">Industry Builders.</span>
+        </h2>
+        <p className="mt-3 text-sm sm:text-base text-text-secondary max-w-xl font-body">
+          Hear directly from the founders, CTOs, and product leaders who rely on ChaiBytes to architect and scale their mission-critical software.
+        </p>
       </div>
+
+      {/* Infinite Marquee Track 1 (Left to Right) */}
+      <div className="relative w-full overflow-hidden mask-fade-edges py-3">
+        <div className="flex gap-6 animate-marquee hover:[animation-play-state:paused] w-max">
+          {row1Items.map((item, idx) => (
+            <TestimonialCard key={`row1-${idx}`} item={item} />
+          ))}
+        </div>
+      </div>
+
+      {/* Infinite Marquee Track 2 (Right to Left) */}
+      <div className="relative w-full overflow-hidden mask-fade-edges py-3 mt-4">
+        <div
+          className="flex gap-6 animate-marquee hover:[animation-play-state:paused] w-max"
+          style={{ animationDirection: "reverse" }}
+        >
+          {row2Items.map((item, idx) => (
+            <TestimonialCard key={`row2-${idx}`} item={item} />
+          ))}
+        </div>
+      </div>
+
     </section>
   );
 }
